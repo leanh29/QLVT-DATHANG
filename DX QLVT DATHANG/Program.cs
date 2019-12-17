@@ -16,12 +16,15 @@ namespace DX_QLVT_DATHANG
         /// </summary>
 
         public static SqlConnection conn = new SqlConnection();
+        public static SqlCommand sqlcmd = new SqlCommand();
         public static String connstr;
         public static SqlDataReader myReader;
+        public static SqlDataReader myReader1;
         public static String servername = ""; // luu ten server tra vè ở form dang nhap
         public static String username = "";
         public static String mlogin = "";
         public static String password = "";
+        public static Boolean check = true;
 
         public static String database = "QLVT DATHANG";
         public static String remotelogin = "HTKN";
@@ -92,7 +95,7 @@ namespace DX_QLVT_DATHANG
             BonusSkins.Register();
             SkinManager.EnableFormSkins();
             formChinh = new formMain();
-            Application.Run(new formDDH());
+            Application.Run(new formDangNhap());
         }
     }
 }

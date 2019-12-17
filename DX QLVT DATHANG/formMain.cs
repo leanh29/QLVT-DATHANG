@@ -56,5 +56,53 @@ namespace DX_QLVT_DATHANG
             ssHoTen.Text = "Họ Tên: " + Program.mHoten + " ||  ";
             ssNhom.Text = "Nhóm: " + Program.mGroup + " ||  ";
         }
+
+        private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(formDDH));
+            if (frm != null) frm.Activate();
+            else
+            {
+                formDDH f = new formDDH();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void barButtonItem3_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(formVatTu));
+            if (frm != null) frm.Activate();
+            else
+            {
+                formVatTu f = new formVatTu();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void barButtonItem4_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(formPhieuNhap));
+            if (frm != null) frm.Activate();
+            else
+            {
+                formPhieuNhap f = new formPhieuNhap();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void barButtonItem5_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(formKho));
+            if (frm != null) frm.Activate();
+            else
+            {
+                formKho f = new formKho();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
     }
 }

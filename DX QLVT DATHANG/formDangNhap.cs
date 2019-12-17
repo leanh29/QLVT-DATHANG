@@ -85,8 +85,9 @@ namespace DX_QLVT_DATHANG
             Program.formChinh.ssHoTen.Text = "Họ tên nhân viên: " + Program.mHoten;
             Program.formChinh.ssNhom.Text = "Nhóm: " + Program.mGroup;
 
-            formMain f = new formMain();
+            
             //formNhanVien f = new formNhanVien();
+            formMain f = new formMain();
             f.Show();
         }
 
