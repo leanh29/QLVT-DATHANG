@@ -32,11 +32,11 @@
             System.Windows.Forms.Label mAPNLabel;
             System.Windows.Forms.Label nGAYLabel;
             System.Windows.Forms.Label masoDDHLabel;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formPhieuNhap));
             System.Windows.Forms.Label hOTENLabel;
             System.Windows.Forms.Label mANVLabel;
             System.Windows.Forms.Label tENKHOLabel;
             System.Windows.Forms.Label mAKHOLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formPhieuNhap));
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar4 = new DevExpress.XtraBars.Bar();
             this.btnThem = new DevExpress.XtraBars.BarButtonItem();
@@ -74,6 +74,12 @@
             this.colMANV = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMAKHO = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.txtMAKHO = new System.Windows.Forms.TextBox();
+            this.cmbKHO = new System.Windows.Forms.ComboBox();
+            this.bdsKHO = new System.Windows.Forms.BindingSource(this.components);
+            this.txtMANV = new System.Windows.Forms.TextBox();
+            this.cmbHOTEN = new System.Windows.Forms.ComboBox();
+            this.bdsDSNV = new System.Windows.Forms.BindingSource(this.components);
             this.cmbMADDH = new System.Windows.Forms.ComboBox();
             this.txtMAPN = new System.Windows.Forms.TextBox();
             this.nGAYDateTimePicker = new System.Windows.Forms.DateTimePicker();
@@ -89,14 +95,8 @@
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cTDDHTableAdapter = new DX_QLVT_DATHANG.DSTableAdapters.CTDDHTableAdapter();
-            this.bdsDSNV = new System.Windows.Forms.BindingSource(this.components);
             this.dSNhanVienTableAdapter = new DX_QLVT_DATHANG.DSTableAdapters.DSNhanVienTableAdapter();
-            this.cmbHOTEN = new System.Windows.Forms.ComboBox();
-            this.txtMANV = new System.Windows.Forms.TextBox();
-            this.bdsKHO = new System.Windows.Forms.BindingSource(this.components);
             this.khoTableAdapter = new DX_QLVT_DATHANG.DSTableAdapters.KhoTableAdapter();
-            this.cmbKHO = new System.Windows.Forms.ComboBox();
-            this.txtMAKHO = new System.Windows.Forms.TextBox();
             mAPNLabel = new System.Windows.Forms.Label();
             nGAYLabel = new System.Windows.Forms.Label();
             masoDDHLabel = new System.Windows.Forms.Label();
@@ -114,11 +114,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsKHO)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsDSNV)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gvCTPN)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsCTDDH)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsDSNV)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsKHO)).BeginInit();
             this.SuspendLayout();
             // 
             // mAPNLabel
@@ -147,6 +147,42 @@
             masoDDHLabel.Size = new System.Drawing.Size(60, 13);
             masoDDHLabel.TabIndex = 4;
             masoDDHLabel.Text = "Maso DDH:";
+            // 
+            // hOTENLabel
+            // 
+            hOTENLabel.AutoSize = true;
+            hOTENLabel.Location = new System.Drawing.Point(44, 112);
+            hOTENLabel.Name = "hOTENLabel";
+            hOTENLabel.Size = new System.Drawing.Size(45, 13);
+            hOTENLabel.TabIndex = 10;
+            hOTENLabel.Text = "HOTEN:";
+            // 
+            // mANVLabel
+            // 
+            mANVLabel.AutoSize = true;
+            mANVLabel.Location = new System.Drawing.Point(318, 111);
+            mANVLabel.Name = "mANVLabel";
+            mANVLabel.Size = new System.Drawing.Size(39, 13);
+            mANVLabel.TabIndex = 11;
+            mANVLabel.Text = "MANV:";
+            // 
+            // tENKHOLabel
+            // 
+            tENKHOLabel.AutoSize = true;
+            tENKHOLabel.Location = new System.Drawing.Point(48, 158);
+            tENKHOLabel.Name = "tENKHOLabel";
+            tENKHOLabel.Size = new System.Drawing.Size(51, 13);
+            tENKHOLabel.TabIndex = 12;
+            tENKHOLabel.Text = "TENKHO:";
+            // 
+            // mAKHOLabel
+            // 
+            mAKHOLabel.AutoSize = true;
+            mAKHOLabel.Location = new System.Drawing.Point(300, 155);
+            mAKHOLabel.Name = "mAKHOLabel";
+            mAKHOLabel.Size = new System.Drawing.Size(47, 13);
+            mAKHOLabel.TabIndex = 13;
+            mAKHOLabel.Text = "MAKHO:";
             // 
             // barManager1
             // 
@@ -470,6 +506,60 @@
             this.panelControl1.Size = new System.Drawing.Size(539, 268);
             this.panelControl1.TabIndex = 16;
             // 
+            // txtMAKHO
+            // 
+            this.txtMAKHO.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsPN, "MAKHO", true));
+            this.txtMAKHO.Location = new System.Drawing.Point(353, 152);
+            this.txtMAKHO.Name = "txtMAKHO";
+            this.txtMAKHO.Size = new System.Drawing.Size(100, 21);
+            this.txtMAKHO.TabIndex = 14;
+            // 
+            // cmbKHO
+            // 
+            this.cmbKHO.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsKHO, "TENKHO", true));
+            this.cmbKHO.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bdsPN, "MAKHO", true));
+            this.cmbKHO.DataSource = this.bdsDH;
+            this.cmbKHO.DisplayMember = "MAKHO";
+            this.cmbKHO.FormattingEnabled = true;
+            this.cmbKHO.Location = new System.Drawing.Point(105, 155);
+            this.cmbKHO.Name = "cmbKHO";
+            this.cmbKHO.Size = new System.Drawing.Size(121, 21);
+            this.cmbKHO.TabIndex = 13;
+            this.cmbKHO.ValueMember = "MAKHO";
+            this.cmbKHO.SelectedIndexChanged += new System.EventHandler(this.cmbKHO_SelectedIndexChanged_1);
+            // 
+            // bdsKHO
+            // 
+            this.bdsKHO.DataMember = "Kho";
+            this.bdsKHO.DataSource = this.DS;
+            // 
+            // txtMANV
+            // 
+            this.txtMANV.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsPN, "MANV", true));
+            this.txtMANV.Location = new System.Drawing.Point(363, 108);
+            this.txtMANV.Name = "txtMANV";
+            this.txtMANV.Size = new System.Drawing.Size(100, 21);
+            this.txtMANV.TabIndex = 12;
+            // 
+            // cmbHOTEN
+            // 
+            this.cmbHOTEN.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsDSNV, "HOTEN", true));
+            this.cmbHOTEN.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bdsPN, "MANV", true));
+            this.cmbHOTEN.DataSource = this.bdsDSNV;
+            this.cmbHOTEN.DisplayMember = "HOTEN";
+            this.cmbHOTEN.FormattingEnabled = true;
+            this.cmbHOTEN.Location = new System.Drawing.Point(95, 109);
+            this.cmbHOTEN.Name = "cmbHOTEN";
+            this.cmbHOTEN.Size = new System.Drawing.Size(121, 21);
+            this.cmbHOTEN.TabIndex = 11;
+            this.cmbHOTEN.ValueMember = "MANV";
+            this.cmbHOTEN.SelectedIndexChanged += new System.EventHandler(this.cmbHOTEN_SelectedIndexChanged_2);
+            // 
+            // bdsDSNV
+            // 
+            this.bdsDSNV.DataMember = "DSNhanVien";
+            this.bdsDSNV.DataSource = this.DS;
+            // 
             // cmbMADDH
             // 
             this.cmbMADDH.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bdsPN, "MasoDDH", true));
@@ -586,103 +676,13 @@
             // 
             this.cTDDHTableAdapter.ClearBeforeFill = true;
             // 
-            // bdsDSNV
-            // 
-            this.bdsDSNV.DataMember = "DSNhanVien";
-            this.bdsDSNV.DataSource = this.DS;
-            // 
             // dSNhanVienTableAdapter
             // 
             this.dSNhanVienTableAdapter.ClearBeforeFill = true;
             // 
-            // hOTENLabel
-            // 
-            hOTENLabel.AutoSize = true;
-            hOTENLabel.Location = new System.Drawing.Point(44, 112);
-            hOTENLabel.Name = "hOTENLabel";
-            hOTENLabel.Size = new System.Drawing.Size(45, 13);
-            hOTENLabel.TabIndex = 10;
-            hOTENLabel.Text = "HOTEN:";
-            // 
-            // cmbHOTEN
-            // 
-            this.cmbHOTEN.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsDSNV, "HOTEN", true));
-            this.cmbHOTEN.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bdsPN, "MANV", true));
-            this.cmbHOTEN.DataSource = this.bdsDSNV;
-            this.cmbHOTEN.DisplayMember = "HOTEN";
-            this.cmbHOTEN.FormattingEnabled = true;
-            this.cmbHOTEN.Location = new System.Drawing.Point(95, 109);
-            this.cmbHOTEN.Name = "cmbHOTEN";
-            this.cmbHOTEN.Size = new System.Drawing.Size(121, 21);
-            this.cmbHOTEN.TabIndex = 11;
-            this.cmbHOTEN.ValueMember = "MANV";
-            this.cmbHOTEN.SelectedIndexChanged += new System.EventHandler(this.cmbHOTEN_SelectedIndexChanged_2);
-            // 
-            // mANVLabel
-            // 
-            mANVLabel.AutoSize = true;
-            mANVLabel.Location = new System.Drawing.Point(318, 111);
-            mANVLabel.Name = "mANVLabel";
-            mANVLabel.Size = new System.Drawing.Size(39, 13);
-            mANVLabel.TabIndex = 11;
-            mANVLabel.Text = "MANV:";
-            // 
-            // txtMANV
-            // 
-            this.txtMANV.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsPN, "MANV", true));
-            this.txtMANV.Location = new System.Drawing.Point(363, 108);
-            this.txtMANV.Name = "txtMANV";
-            this.txtMANV.Size = new System.Drawing.Size(100, 21);
-            this.txtMANV.TabIndex = 12;
-            // 
-            // bdsKHO
-            // 
-            this.bdsKHO.DataMember = "Kho";
-            this.bdsKHO.DataSource = this.DS;
-            // 
             // khoTableAdapter
             // 
             this.khoTableAdapter.ClearBeforeFill = true;
-            // 
-            // tENKHOLabel
-            // 
-            tENKHOLabel.AutoSize = true;
-            tENKHOLabel.Location = new System.Drawing.Point(48, 158);
-            tENKHOLabel.Name = "tENKHOLabel";
-            tENKHOLabel.Size = new System.Drawing.Size(51, 13);
-            tENKHOLabel.TabIndex = 12;
-            tENKHOLabel.Text = "TENKHO:";
-            // 
-            // cmbKHO
-            // 
-            this.cmbKHO.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsKHO, "TENKHO", true));
-            this.cmbKHO.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bdsPN, "MAKHO", true));
-            this.cmbKHO.DataSource = this.bdsKHO;
-            this.cmbKHO.DisplayMember = "TENKHO";
-            this.cmbKHO.FormattingEnabled = true;
-            this.cmbKHO.Location = new System.Drawing.Point(105, 155);
-            this.cmbKHO.Name = "cmbKHO";
-            this.cmbKHO.Size = new System.Drawing.Size(121, 21);
-            this.cmbKHO.TabIndex = 13;
-            this.cmbKHO.ValueMember = "MAKHO";
-            this.cmbKHO.SelectedIndexChanged += new System.EventHandler(this.cmbKHO_SelectedIndexChanged_1);
-            // 
-            // mAKHOLabel
-            // 
-            mAKHOLabel.AutoSize = true;
-            mAKHOLabel.Location = new System.Drawing.Point(300, 155);
-            mAKHOLabel.Name = "mAKHOLabel";
-            mAKHOLabel.Size = new System.Drawing.Size(47, 13);
-            mAKHOLabel.TabIndex = 13;
-            mAKHOLabel.Text = "MAKHO:";
-            // 
-            // txtMAKHO
-            // 
-            this.txtMAKHO.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsPN, "MAKHO", true));
-            this.txtMAKHO.Location = new System.Drawing.Point(353, 152);
-            this.txtMAKHO.Name = "txtMAKHO";
-            this.txtMAKHO.Size = new System.Drawing.Size(100, 21);
-            this.txtMAKHO.TabIndex = 14;
             // 
             // formPhieuNhap
             // 
@@ -712,11 +712,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsKHO)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsDSNV)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gvCTPN)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsCTDDH)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsDSNV)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsKHO)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

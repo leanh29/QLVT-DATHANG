@@ -165,7 +165,6 @@ namespace DX_QLVT_DATHANG
             try
             {
                 txtMAKHO.Text = cmbKHO.SelectedValue.ToString();
-                
             }
             catch (Exception) {}
         }

@@ -37,6 +37,12 @@ namespace DX_QLVT_DATHANG
 
         private void formKho_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'DS.DatHang' table. You can move, or remove it, as needed.
+           
+            // TODO: This line of code loads data into the 'DS.PhieuXuat' table. You can move, or remove it, as needed.
+            
+            // TODO: This line of code loads data into the 'DS.DatHang' table. You can move, or remove it, as needed.
+            
             // TODO: This line of code loads data into the 'DS.PhieuNhap' table. You can move, or remove it, as needed.
            
             DS.EnforceConstraints = false;
@@ -44,8 +50,17 @@ namespace DX_QLVT_DATHANG
             this.khoTableAdapter.Connection.ConnectionString = Program.connstr;
             this.khoTableAdapter.Fill(this.DS.Kho);
 
+            this.phieuXuatTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.phieuXuatTableAdapter.Fill(this.DS.PhieuXuat);
+
+            this.datHangTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.datHangTableAdapter.Fill(this.DS.DatHang);
+            // TODO: This line of code loads data into the 'DS.PhieuNhap' table. You can move, or remove it, as needed.
             this.phieuNhapTableAdapter.Connection.ConnectionString = Program.connstr;
             this.phieuNhapTableAdapter.Fill(this.DS.PhieuNhap);
+            // TODO: This line of code loads data into the 'DS.DatHang' table. You can move, or remove it, as needed.
+            
+           
             maCN = ((DataRowView)bdsKHO[0])["MACN"].ToString();
             cmbChiNhanh.DataSource = Program.bds_dspm;
             cmbChiNhanh.DisplayMember = "TENCN";
@@ -60,6 +75,7 @@ namespace DX_QLVT_DATHANG
 
             else cmbChiNhanh.Enabled = false;
             panelControl1.Enabled = false;
+            txtMACN.ReadOnly = true;
         }
 
         private void cmbChiNhanh_SelectedIndexChanged(object sender, EventArgs e)
@@ -198,15 +214,34 @@ namespace DX_QLVT_DATHANG
                 MessageBox.Show("Kho đã được lập phiếu nhập, không thể xóa");
                     return;
             }
-            try
+            if (bdsDDH.Count > 0)
             {
-                bdsKHO.RemoveCurrent();
-                this.khoTableAdapter.Update(this.DS.Kho);
-                MessageBox.Show(" Xóa thành công");
+                MessageBox.Show("Kho đã được lập đơn đặt hàng, không thể xóa");
             }
-            catch(Exception er){
-                MessageBox.Show("lỗi\n"+er.Message);
+            else
+            {
+                if (MessageBox.Show("Bạn có thật sự muốn xóa kho này? ", "Xác nhận", MessageBoxButtons.YesNoCancel) == DialogResult.Yes)
+                {
+                    try
+                    {
+                        bdsKHO.RemoveCurrent();
+                        this.khoTableAdapter.Update(this.DS.Kho);
+                        MessageBox.Show(" Xóa thành công");
+                    }
+                    catch (Exception er)
+                    {
+                        MessageBox.Show("lỗi\n" + er.Message);
+                    }
+                }
             }
+            
+        }
+
+        private void btnSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            panelControl1.Enabled = true;
+            flag = false;
+            txtMAKHO.ReadOnly = true;
         }
     }
 }

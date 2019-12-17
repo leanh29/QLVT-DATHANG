@@ -44,7 +44,7 @@ namespace DX_QLVT_DATHANG
             cmbChiNhanh.DisplayMember = "TENCN";
             cmbChiNhanh.ValueMember = "TENSERVER";
             cmbChiNhanh.SelectedIndex = Program.mChinhanh;
-            
+
             if (Program.mGroup == "CongTy")
             {
                 cmbChiNhanh.Enabled = true;

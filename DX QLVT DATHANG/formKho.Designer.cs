@@ -72,6 +72,10 @@
             this.txtMACN = new System.Windows.Forms.TextBox();
             this.bdsPN = new System.Windows.Forms.BindingSource(this.components);
             this.phieuNhapTableAdapter = new DX_QLVT_DATHANG.DSTableAdapters.PhieuNhapTableAdapter();
+            this.bdsPX = new System.Windows.Forms.BindingSource(this.components);
+            this.phieuXuatTableAdapter = new DX_QLVT_DATHANG.DSTableAdapters.PhieuXuatTableAdapter();
+            this.bdsDDH = new System.Windows.Forms.BindingSource(this.components);
+            this.datHangTableAdapter = new DX_QLVT_DATHANG.DSTableAdapters.DatHangTableAdapter();
             dIACHILabel = new System.Windows.Forms.Label();
             mACNLabel = new System.Windows.Forms.Label();
             mAKHOLabel1 = new System.Windows.Forms.Label();
@@ -85,6 +89,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bdsPN)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsPX)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsDDH)).BeginInit();
             this.SuspendLayout();
             // 
             // dIACHILabel
@@ -198,6 +204,7 @@
             this.btnSua.Glyph = ((System.Drawing.Image)(resources.GetObject("btnSua.Glyph")));
             this.btnSua.Id = 11;
             this.btnSua.Name = "btnSua";
+            this.btnSua.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSua_ItemClick);
             // 
             // btnUndo
             // 
@@ -245,14 +252,14 @@
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Size = new System.Drawing.Size(935, 40);
+            this.barDockControlTop.Size = new System.Drawing.Size(946, 40);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.barDockControlBottom.Location = new System.Drawing.Point(0, 484);
-            this.barDockControlBottom.Size = new System.Drawing.Size(935, 23);
+            this.barDockControlBottom.Size = new System.Drawing.Size(946, 23);
             // 
             // barDockControlLeft
             // 
@@ -265,7 +272,7 @@
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(935, 40);
+            this.barDockControlRight.Location = new System.Drawing.Point(946, 40);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 444);
             // 
             // barButtonItem1
@@ -295,7 +302,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 40);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(935, 58);
+            this.panel1.Size = new System.Drawing.Size(946, 58);
             this.panel1.TabIndex = 11;
             // 
             // label1
@@ -353,7 +360,7 @@
             this.khoGridControl.MainView = this.gridView1;
             this.khoGridControl.MenuManager = this.barManager1;
             this.khoGridControl.Name = "khoGridControl";
-            this.khoGridControl.Size = new System.Drawing.Size(935, 166);
+            this.khoGridControl.Size = new System.Drawing.Size(946, 166);
             this.khoGridControl.TabIndex = 12;
             this.khoGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -409,7 +416,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 264);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(935, 220);
+            this.panelControl1.Size = new System.Drawing.Size(946, 220);
             this.panelControl1.TabIndex = 13;
             // 
             // txtTENKHO
@@ -446,18 +453,36 @@
             // 
             // bdsPN
             // 
-            this.bdsPN.DataMember = "PhieuNhap";
-            this.bdsPN.DataSource = this.DS;
+            this.bdsPN.DataMember = "FK_PhieuNhap_Kho";
+            this.bdsPN.DataSource = this.bdsKHO;
             // 
             // phieuNhapTableAdapter
             // 
             this.phieuNhapTableAdapter.ClearBeforeFill = true;
             // 
+            // bdsPX
+            // 
+            this.bdsPX.DataMember = "FK_PhieuXuat_Kho";
+            this.bdsPX.DataSource = this.bdsKHO;
+            // 
+            // phieuXuatTableAdapter
+            // 
+            this.phieuXuatTableAdapter.ClearBeforeFill = true;
+            // 
+            // bdsDDH
+            // 
+            this.bdsDDH.DataMember = "Kho_DatHang";
+            this.bdsDDH.DataSource = this.bdsKHO;
+            // 
+            // datHangTableAdapter
+            // 
+            this.datHangTableAdapter.ClearBeforeFill = true;
+            // 
             // formKho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(935, 507);
+            this.ClientSize = new System.Drawing.Size(946, 507);
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.khoGridControl);
             this.Controls.Add(this.panel1);
@@ -479,6 +504,8 @@
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bdsPN)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsPX)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsDDH)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -524,5 +551,9 @@
         private System.Windows.Forms.TextBox txtMAKHO;
         private System.Windows.Forms.BindingSource bdsPN;
         private DSTableAdapters.PhieuNhapTableAdapter phieuNhapTableAdapter;
+        private System.Windows.Forms.BindingSource bdsPX;
+        private DSTableAdapters.PhieuXuatTableAdapter phieuXuatTableAdapter;
+        private System.Windows.Forms.BindingSource bdsDDH;
+        private DSTableAdapters.DatHangTableAdapter datHangTableAdapter;
     }
 }
