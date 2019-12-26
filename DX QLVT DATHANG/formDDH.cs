@@ -350,11 +350,6 @@ namespace DX_QLVT_DATHANG
                     return;
                 }
             }
-            
-            //for (int i = 0; i < gvCTDDH.Columns.Count; i++)
-            //{
-                
-            //}
              try
             {
                 bdsCTDDH.EndEdit();

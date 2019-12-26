@@ -247,8 +247,8 @@ namespace DX_QLVT_DATHANG
             }
             if (flag == true)
             {
-                try
-                {
+                    try
+                    {
                         String str = "dbo.SP_CHECKTRUNGNV";
                         Program.sqlcmd = Program.conn.CreateCommand();
                         Program.sqlcmd.CommandType = CommandType.StoredProcedure;

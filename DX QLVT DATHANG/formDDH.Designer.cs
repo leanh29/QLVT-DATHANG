@@ -323,28 +323,28 @@
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Size = new System.Drawing.Size(1285, 40);
+            this.barDockControlTop.Size = new System.Drawing.Size(820, 40);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 533);
-            this.barDockControlBottom.Size = new System.Drawing.Size(1285, 23);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 368);
+            this.barDockControlBottom.Size = new System.Drawing.Size(820, 23);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 40);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 493);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 328);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1285, 40);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 493);
+            this.barDockControlRight.Location = new System.Drawing.Point(820, 40);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 328);
             // 
             // barButtonItem1
             // 
@@ -373,7 +373,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 40);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1285, 63);
+            this.panel1.Size = new System.Drawing.Size(820, 63);
             this.panel1.TabIndex = 4;
             // 
             // label1
@@ -433,7 +433,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl2.Location = new System.Drawing.Point(0, 103);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(1285, 430);
+            this.panelControl2.Size = new System.Drawing.Size(820, 265);
             this.panelControl2.TabIndex = 8;
             // 
             // gvCTDDH
@@ -447,9 +447,10 @@
             this.txtDONGIA});
             this.gvCTDDH.DataSource = this.bdsCTDDH;
             this.gvCTDDH.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gvCTDDH.Location = new System.Drawing.Point(583, 197);
+            this.gvCTDDH.Location = new System.Drawing.Point(583, 94);
             this.gvCTDDH.Name = "gvCTDDH";
-            this.gvCTDDH.Size = new System.Drawing.Size(700, 231);
+            this.gvCTDDH.RowTemplate.ContextMenuStrip = this.contextMenuStrip1;
+            this.gvCTDDH.Size = new System.Drawing.Size(235, 169);
             this.gvCTDDH.TabIndex = 8;
             this.gvCTDDH.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.cTDDHDataGridView_CellContentClick);
             // 
@@ -514,9 +515,9 @@
             this.panelControl1.Controls.Add(this.txtNCC);
             this.panelControl1.Controls.Add(mANVLabel);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelControl1.Location = new System.Drawing.Point(2, 197);
+            this.panelControl1.Location = new System.Drawing.Point(2, 94);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(581, 231);
+            this.panelControl1.Size = new System.Drawing.Size(581, 169);
             this.panelControl1.TabIndex = 8;
             // 
             // txtMAKHO
@@ -618,7 +619,7 @@
             this.gcDatHang.MainView = this.gridView1;
             this.gcDatHang.MenuManager = this.barManager1;
             this.gcDatHang.Name = "gcDatHang";
-            this.gcDatHang.Size = new System.Drawing.Size(1281, 195);
+            this.gcDatHang.Size = new System.Drawing.Size(816, 92);
             this.gcDatHang.TabIndex = 7;
             this.gcDatHang.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -727,8 +728,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1285, 556);
-            this.ContextMenuStrip = this.contextMenuStrip1;
+            this.ClientSize = new System.Drawing.Size(820, 391);
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.barDockControlLeft);

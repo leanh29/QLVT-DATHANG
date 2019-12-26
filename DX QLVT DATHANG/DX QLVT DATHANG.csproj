@@ -34,16 +34,27 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.BonusSkins.v16.1" />
+    <Reference Include="DevExpress.Charts.v16.1.Core, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v16.1" />
+    <Reference Include="DevExpress.DataAccess.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Office.v16.1.Core, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v16.1.Core, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v16.1.Core" />
+    <Reference Include="DevExpress.RichEdit.v16.1.Core, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v16.1" />
+    <Reference Include="DevExpress.Utils.v16.1.UI, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpo.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraBars.v16.1" />
     <Reference Include="DevExpress.Sparkline.v16.1.Core" />
+    <Reference Include="DevExpress.XtraCharts.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v16.1" />
+    <Reference Include="DevExpress.XtraGauges.v16.1.Core, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraGrid.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraNavBar.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPrinting.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v16.1.Extensions, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -97,6 +108,24 @@
     <Compile Include="formPhieuNhap.Designer.cs">
       <DependentUpon>formPhieuNhap.cs</DependentUpon>
     </Compile>
+    <Compile Include="formPhieuXuat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formPhieuXuat.Designer.cs">
+      <DependentUpon>formPhieuXuat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formrpNV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formrpNV.Designer.cs">
+      <DependentUpon>formrpNV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formrpVATU.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formrpVATU.Designer.cs">
+      <DependentUpon>formrpVATU.cs</DependentUpon>
+    </Compile>
     <Compile Include="formVatTu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +138,18 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>QLVT_DATHANGDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="xrpNV.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="xrpNV.Designer.cs">
+      <DependentUpon>xrpNV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xrpVATTU.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="xrpVATTU.Designer.cs">
+      <DependentUpon>xrpVATTU.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="formDDH.resx">
       <DependentUpon>formDDH.cs</DependentUpon>
@@ -128,6 +169,15 @@
     <EmbeddedResource Include="formPhieuNhap.resx">
       <DependentUpon>formPhieuNhap.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="formPhieuXuat.resx">
+      <DependentUpon>formPhieuXuat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formrpNV.resx">
+      <DependentUpon>formrpNV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formrpVATU.resx">
+      <DependentUpon>formrpVATU.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formVatTu.resx">
       <DependentUpon>formVatTu.cs</DependentUpon>
     </EmbeddedResource>
@@ -141,6 +191,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="xrpNV.resx">
+      <DependentUpon>xrpNV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="xrpVATTU.resx">
+      <DependentUpon>xrpVATTU.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.config" />
     <None Include="DS.xsc">
       <DependentUpon>DS.xsd</DependentUpon>

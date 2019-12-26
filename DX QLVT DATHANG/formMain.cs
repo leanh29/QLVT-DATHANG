@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevExpress.XtraReports.UI;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -100,6 +101,41 @@ namespace DX_QLVT_DATHANG
             else
             {
                 formKho f = new formKho();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void barButtonItem6_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(formPhieuXuat));
+            if (frm != null) frm.Activate();
+            else
+            {
+                formPhieuXuat f = new formPhieuXuat();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void barButtonItem8_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            xrpVATTU rpt = new xrpVATTU();
+        //rpt.lblTieuDe.Text = ‘DANH SÁCH PHIẾU ‘ + cmbLoai.Text.ToUpper() + ‘ NHÂN VIÊN LẬP TRONG NĂM ‘ & cmbNam.Text;
+        //rpt.lblHoTen.Text = cmbHoten.Text;
+        ReportPrintTool print= new ReportPrintTool(rpt);
+        
+        print.ShowPreviewDialog();
+
+        }
+
+        private void barButtonItem7_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(formrpNV));
+            if (frm != null) frm.Activate();
+            else
+            {
+                formrpNV f = new formrpNV();
                 f.MdiParent = this;
                 f.Show();
             }

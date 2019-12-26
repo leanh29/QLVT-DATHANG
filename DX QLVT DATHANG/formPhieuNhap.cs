@@ -13,6 +13,8 @@ namespace DX_QLVT_DATHANG
     public partial class formPhieuNhap : Form
     {
         Boolean flag = true;
+        int vitri = 0;
+        Boolean flag1 = true;
         public formPhieuNhap()
         {
             InitializeComponent();
@@ -28,13 +30,13 @@ namespace DX_QLVT_DATHANG
 
         private void formPhieuNhap_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'DS.Kho' table. You can move, or remove it, as needed.
+            // TODO: This line of code loads data into the 'DS.Vattu' table. You can move, or remove it, as needed.
             
-            // TODO: This line of code loads data into the 'DS.DSNhanVien' table. You can move, or remove it, as needed.
-            
-            // TODO: This line of code loads data into the 'DS.CTDDH' table. You can move, or remove it, as needed.
             
             DS.EnforceConstraints = false;
+
+            this.vattuTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.vattuTableAdapter.Fill(this.DS.Vattu);
 
             this.khoTableAdapter.Connection.ConnectionString = Program.connstr;
             this.khoTableAdapter.Fill(this.DS.Kho);
@@ -74,6 +76,10 @@ namespace DX_QLVT_DATHANG
             else cmbChiNhanh.Enabled = false;
             panelControl1.Enabled = false;
             //gcPN.Click = true;
+            foreach (DataGridViewRow row in gvCTPN.Rows)
+            {
+                row.ReadOnly = true;
+            }
         }
         private void cmbChiNhanh_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -167,6 +173,55 @@ namespace DX_QLVT_DATHANG
                 txtMAKHO.Text = cmbKHO.SelectedValue.ToString();
             }
             catch (Exception) {}
+        }
+
+        private void thêmToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bdsCTPN.AddNew();
+            vitri = bdsCTDDH.Position;
+            string vt = vitri.ToString();
+            gvCTPN.Rows[vitri].ReadOnly = false;
+            flag1 = true;
+        }
+
+        private void ghiVTToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (flag1 == true)
+            {
+                vitri = bdsCTPN.Position;
+                if (gvCTPN.Rows[vitri].Cells[2].Value == DBNull.Value)
+                {
+                    MessageBox.Show("Vật tư không được để trống");
+                    return;
+                }
+            }
+            try
+            {
+                bdsCTPN.EndEdit();
+                bdsCTPN.ResetCurrentItem();
+                this.cTPNTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.cTPNTableAdapter.Update(this.DS.CTPN);
+                MessageBox.Show("Ghi vật tư vào đơn đặt hàng thành công");
+                //string s = cmbMAVT.
+                return;
+            }
+            catch (Exception ee)
+            {
+
+                if (ee.Message.Contains("duplicate"))
+                {
+                    MessageBox.Show("Vật tư đã tồn tại trong đơn đặt hàng");
+                    return;
+                }
+                MessageBox.Show("lỗi ghi vât tư" + ee.Message);
+            }
+        }
+
+        private void sửaVTToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            vitri = bdsCTDDH.Position;
+            gvCTPN.Rows[vitri].ReadOnly = false;
+            flag1 = false;
         }
     }
 }
