@@ -132,12 +132,36 @@
     <Compile Include="formVatTu.Designer.cs">
       <DependentUpon>formVatTu.cs</DependentUpon>
     </Compile>
+    <Compile Include="frpChiTietPhieuTrongKhoangTheoLoai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frpChiTietPhieuTrongKhoangTheoLoai.Designer.cs">
+      <DependentUpon>frpChiTietPhieuTrongKhoangTheoLoai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frpTinhHinhHoatDong1NhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frpTinhHinhHoatDong1NhanVien.Designer.cs">
+      <DependentUpon>frpTinhHinhHoatDong1NhanVien.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QLVT_DATHANGDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>QLVT_DATHANGDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="xrpChiTietPhieuTrongKhoangTheoLoai.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="xrpChiTietPhieuTrongKhoangTheoLoai.Designer.cs">
+      <DependentUpon>xrpChiTietPhieuTrongKhoangTheoLoai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xrpDonDatHangChuaCoPhieuNhap.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="xrpDonDatHangChuaCoPhieuNhap.Designer.cs">
+      <DependentUpon>xrpDonDatHangChuaCoPhieuNhap.cs</DependentUpon>
     </Compile>
     <Compile Include="xrpNV.cs">
       <SubType>Component</SubType>
@@ -181,6 +205,12 @@
     <EmbeddedResource Include="formVatTu.resx">
       <DependentUpon>formVatTu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frpChiTietPhieuTrongKhoangTheoLoai.resx">
+      <DependentUpon>frpChiTietPhieuTrongKhoangTheoLoai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frpTinhHinhHoatDong1NhanVien.resx">
+      <DependentUpon>frpTinhHinhHoatDong1NhanVien.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -191,6 +221,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="xrpChiTietPhieuTrongKhoangTheoLoai.resx">
+      <DependentUpon>xrpChiTietPhieuTrongKhoangTheoLoai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="xrpDonDatHangChuaCoPhieuNhap.resx">
+      <DependentUpon>xrpDonDatHangChuaCoPhieuNhap.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="xrpNV.resx">
       <DependentUpon>xrpNV.cs</DependentUpon>
     </EmbeddedResource>

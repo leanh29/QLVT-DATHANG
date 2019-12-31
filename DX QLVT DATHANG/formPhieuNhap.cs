@@ -30,13 +30,15 @@ namespace DX_QLVT_DATHANG
 
         private void formPhieuNhap_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'DS.DSVatTu' table. You can move, or remove it, as needed.
+            
             // TODO: This line of code loads data into the 'DS.Vattu' table. You can move, or remove it, as needed.
             
             
             DS.EnforceConstraints = false;
 
-            this.vattuTableAdapter.Connection.ConnectionString = Program.connstr;
-            this.vattuTableAdapter.Fill(this.DS.Vattu);
+            //this.vattuTableAdapter.Connection.ConnectionString = Program.connstr;
+            //this.vattuTableAdapter.Fill(this.DS.Vattu);
 
             this.khoTableAdapter.Connection.ConnectionString = Program.connstr;
             this.khoTableAdapter.Fill(this.DS.Kho);
@@ -178,7 +180,7 @@ namespace DX_QLVT_DATHANG
         private void thêmToolStripMenuItem_Click(object sender, EventArgs e)
         {
             bdsCTPN.AddNew();
-            vitri = bdsCTDDH.Position;
+            vitri = bdsCTPN.Position;
             string vt = vitri.ToString();
             gvCTPN.Rows[vitri].ReadOnly = false;
             flag1 = true;
@@ -219,9 +221,19 @@ namespace DX_QLVT_DATHANG
 
         private void sửaVTToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            vitri = bdsCTDDH.Position;
+            vitri = bdsCTPN.Position;
             gvCTPN.Rows[vitri].ReadOnly = false;
             flag1 = false;
+        }
+
+        private void txtMAKHO_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbMADDH_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

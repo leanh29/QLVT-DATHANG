@@ -90,14 +90,12 @@
             this.gvCTPN = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.bdsVT = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bdsCTDDH = new System.Windows.Forms.BindingSource(this.components);
             this.cTDDHTableAdapter = new DX_QLVT_DATHANG.DSTableAdapters.CTDDHTableAdapter();
             this.dSNhanVienTableAdapter = new DX_QLVT_DATHANG.DSTableAdapters.DSNhanVienTableAdapter();
             this.khoTableAdapter = new DX_QLVT_DATHANG.DSTableAdapters.KhoTableAdapter();
-            this.vattuTableAdapter = new DX_QLVT_DATHANG.DSTableAdapters.VattuTableAdapter();
             mAPNLabel = new System.Windows.Forms.Label();
             nGAYLabel = new System.Windows.Forms.Label();
             masoDDHLabel = new System.Windows.Forms.Label();
@@ -118,7 +116,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.bdsDSNV)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gvCTPN)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsVT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsCTDDH)).BeginInit();
             this.SuspendLayout();
             // 
@@ -494,7 +491,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelControl1.Location = new System.Drawing.Point(0, 327);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(487, 268);
+            this.panelControl1.Size = new System.Drawing.Size(568, 268);
             this.panelControl1.TabIndex = 16;
             // 
             // txtMAKHO
@@ -504,6 +501,7 @@
             this.txtMAKHO.Name = "txtMAKHO";
             this.txtMAKHO.Size = new System.Drawing.Size(100, 21);
             this.txtMAKHO.TabIndex = 14;
+            this.txtMAKHO.TextChanged += new System.EventHandler(this.txtMAKHO_TextChanged);
             // 
             // cmbKHO
             // 
@@ -517,7 +515,6 @@
             this.cmbKHO.Size = new System.Drawing.Size(121, 21);
             this.cmbKHO.TabIndex = 13;
             this.cmbKHO.ValueMember = "MAKHO";
-            this.cmbKHO.Visible = false;
             this.cmbKHO.SelectedIndexChanged += new System.EventHandler(this.cmbKHO_SelectedIndexChanged_1);
             // 
             // bdsKHO
@@ -563,6 +560,7 @@
             this.cmbMADDH.Size = new System.Drawing.Size(199, 21);
             this.cmbMADDH.TabIndex = 10;
             this.cmbMADDH.ValueMember = "MasoDDH";
+            this.cmbMADDH.SelectedIndexChanged += new System.EventHandler(this.cmbMADDH_SelectedIndexChanged);
             // 
             // txtMAPN
             // 
@@ -628,10 +626,10 @@
             this.dataGridViewTextBoxColumn4});
             this.gvCTPN.DataSource = this.bdsCTPN;
             this.gvCTPN.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gvCTPN.Location = new System.Drawing.Point(487, 327);
+            this.gvCTPN.Location = new System.Drawing.Point(568, 327);
             this.gvCTPN.Name = "gvCTPN";
             this.gvCTPN.RowTemplate.ContextMenuStrip = this.contextMenuStrip1;
-            this.gvCTPN.Size = new System.Drawing.Size(365, 268);
+            this.gvCTPN.Size = new System.Drawing.Size(284, 268);
             this.gvCTPN.TabIndex = 18;
             // 
             // dataGridViewTextBoxColumn1
@@ -643,18 +641,10 @@
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "MAVT";
-            this.dataGridViewTextBoxColumn2.DataSource = this.bdsVT;
-            this.dataGridViewTextBoxColumn2.DisplayMember = "TENVT";
             this.dataGridViewTextBoxColumn2.HeaderText = "MAVT";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewTextBoxColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewTextBoxColumn2.ValueMember = "MAVT";
-            // 
-            // bdsVT
-            // 
-            this.bdsVT.DataMember = "Vattu";
-            this.bdsVT.DataSource = this.DS;
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -684,10 +674,6 @@
             // khoTableAdapter
             // 
             this.khoTableAdapter.ClearBeforeFill = true;
-            // 
-            // vattuTableAdapter
-            // 
-            this.vattuTableAdapter.ClearBeforeFill = true;
             // 
             // formPhieuNhap
             // 
@@ -721,7 +707,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.bdsDSNV)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gvCTPN)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsVT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsCTDDH)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -786,8 +771,6 @@
         private DSTableAdapters.KhoTableAdapter khoTableAdapter;
         private System.Windows.Forms.TextBox txtMAKHO;
         private System.Windows.Forms.ComboBox cmbKHO;
-        private System.Windows.Forms.BindingSource bdsVT;
-        private DSTableAdapters.VattuTableAdapter vattuTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;

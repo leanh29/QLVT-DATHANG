@@ -6,14 +6,13 @@ using DevExpress.XtraReports.UI;
 
 namespace DX_QLVT_DATHANG
 {
-    public partial class xrpNV : DevExpress.XtraReports.UI.XtraReport
+    public partial class xrpDonDatHangChuaCoPhieuNhap : DevExpress.XtraReports.UI.XtraReport
     {
-        public xrpNV()
+        public xrpDonDatHangChuaCoPhieuNhap(string nhom)
         {
             InitializeComponent();
             ds1.EnforceConstraints = false;
-            this.sP_RP_NVTableAdapter1.Connection.ConnectionString = Program.connstr;
-            this.sP_RP_NVTableAdapter1.Fill(ds1.SP_RP_NV);
+            this.sP_RP_DonDatHangChuaCoPhieuNhapTableAdapter1.Fill(ds1.SP_RP_DonDatHangChuaCoPhieuNhap, nhom);
         }
 
     }

@@ -72,6 +72,11 @@
             this.txtDONGIA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bdsCTDDH = new System.Windows.Forms.BindingSource(this.components);
             this.bdsDDH = new System.Windows.Forms.BindingSource(this.components);
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.thêmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ghiVTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.xóaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sửaVTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.txtMAKHO = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -93,11 +98,6 @@
             this.dSNhanVienTableAdapter = new DX_QLVT_DATHANG.DSTableAdapters.DSNhanVienTableAdapter();
             this.datHangTableAdapter = new DX_QLVT_DATHANG.DSTableAdapters.DatHangTableAdapter();
             this.vattuTableAdapter = new DX_QLVT_DATHANG.DSTableAdapters.VattuTableAdapter();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.thêmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ghiVTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.xóaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sửaVTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.khoTableAdapter = new DX_QLVT_DATHANG.DSTableAdapters.KhoTableAdapter();
             masoDDHLabel = new System.Windows.Forms.Label();
             nGAYLabel = new System.Windows.Forms.Label();
@@ -114,12 +114,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.bdsVT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsCTDDH)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsDDH)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bdsKho)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcDatHang)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // masoDDHLabel
@@ -498,6 +498,44 @@
             this.bdsDDH.DataMember = "DatHang";
             this.bdsDDH.DataSource = this.DS;
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.thêmToolStripMenuItem,
+            this.ghiVTToolStripMenuItem,
+            this.xóaToolStripMenuItem,
+            this.sửaVTToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(123, 92);
+            // 
+            // thêmToolStripMenuItem
+            // 
+            this.thêmToolStripMenuItem.Name = "thêmToolStripMenuItem";
+            this.thêmToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.thêmToolStripMenuItem.Text = "Thêm VT";
+            this.thêmToolStripMenuItem.Click += new System.EventHandler(this.thêmToolStripMenuItem_Click);
+            // 
+            // ghiVTToolStripMenuItem
+            // 
+            this.ghiVTToolStripMenuItem.Name = "ghiVTToolStripMenuItem";
+            this.ghiVTToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.ghiVTToolStripMenuItem.Text = "Ghi VT";
+            this.ghiVTToolStripMenuItem.Click += new System.EventHandler(this.ghiVTToolStripMenuItem_Click);
+            // 
+            // xóaToolStripMenuItem
+            // 
+            this.xóaToolStripMenuItem.Name = "xóaToolStripMenuItem";
+            this.xóaToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.xóaToolStripMenuItem.Text = "Xóa VT";
+            this.xóaToolStripMenuItem.Click += new System.EventHandler(this.xóaToolStripMenuItem_Click);
+            // 
+            // sửaVTToolStripMenuItem
+            // 
+            this.sửaVTToolStripMenuItem.Name = "sửaVTToolStripMenuItem";
+            this.sửaVTToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.sửaVTToolStripMenuItem.Text = "Sửa VT";
+            this.sửaVTToolStripMenuItem.Click += new System.EventHandler(this.sửaVTToolStripMenuItem_Click);
+            // 
             // panelControl1
             // 
             this.panelControl1.Controls.Add(mAKHOLabel1);
@@ -682,44 +720,6 @@
             // 
             this.vattuTableAdapter.ClearBeforeFill = true;
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.thêmToolStripMenuItem,
-            this.ghiVTToolStripMenuItem,
-            this.xóaToolStripMenuItem,
-            this.sửaVTToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(123, 92);
-            // 
-            // thêmToolStripMenuItem
-            // 
-            this.thêmToolStripMenuItem.Name = "thêmToolStripMenuItem";
-            this.thêmToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
-            this.thêmToolStripMenuItem.Text = "Thêm VT";
-            this.thêmToolStripMenuItem.Click += new System.EventHandler(this.thêmToolStripMenuItem_Click);
-            // 
-            // ghiVTToolStripMenuItem
-            // 
-            this.ghiVTToolStripMenuItem.Name = "ghiVTToolStripMenuItem";
-            this.ghiVTToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
-            this.ghiVTToolStripMenuItem.Text = "Ghi VT";
-            this.ghiVTToolStripMenuItem.Click += new System.EventHandler(this.ghiVTToolStripMenuItem_Click);
-            // 
-            // xóaToolStripMenuItem
-            // 
-            this.xóaToolStripMenuItem.Name = "xóaToolStripMenuItem";
-            this.xóaToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
-            this.xóaToolStripMenuItem.Text = "Xóa VT";
-            this.xóaToolStripMenuItem.Click += new System.EventHandler(this.xóaToolStripMenuItem_Click);
-            // 
-            // sửaVTToolStripMenuItem
-            // 
-            this.sửaVTToolStripMenuItem.Name = "sửaVTToolStripMenuItem";
-            this.sửaVTToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
-            this.sửaVTToolStripMenuItem.Text = "Sửa VT";
-            this.sửaVTToolStripMenuItem.Click += new System.EventHandler(this.sửaVTToolStripMenuItem_Click);
-            // 
             // khoTableAdapter
             // 
             this.khoTableAdapter.ClearBeforeFill = true;
@@ -749,13 +749,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.bdsVT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsCTDDH)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsDDH)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bdsKho)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcDatHang)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

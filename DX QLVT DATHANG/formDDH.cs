@@ -310,7 +310,6 @@ namespace DX_QLVT_DATHANG
         {
             
             bdsCTDDH.AddNew();
-            
             vitri = bdsCTDDH.Position;
             string vt = vitri.ToString();
             gvCTDDH.Rows[vitri].ReadOnly = false;
@@ -344,9 +343,14 @@ namespace DX_QLVT_DATHANG
             if (flag1 == true)
             {
                 vitri = bdsCTDDH.Position;
-                if (gvCTDDH.Rows[vitri].Cells[2].Value == DBNull.Value)
+                if (gvCTDDH.Rows[vitri].Cells[1].Value == DBNull.Value)
                 {
                     MessageBox.Show("Vật tư không được để trống");
+                    return;
+                }
+                if (gvCTDDH.Rows[vitri].Cells[2].Value == DBNull.Value)
+                {
+                    MessageBox.Show("Số lượng vật tư không được để trống");
                     return;
                 }
             }

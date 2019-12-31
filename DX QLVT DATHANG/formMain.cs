@@ -140,5 +140,26 @@ namespace DX_QLVT_DATHANG
                 f.Show();
             }
         }
+
+        private void barButtonItem9_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(frpChiTietPhieuTrongKhoangTheoLoai));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frpChiTietPhieuTrongKhoangTheoLoai f = new frpChiTietPhieuTrongKhoangTheoLoai();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void barButtonItem10_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            xrpDonDatHangChuaCoPhieuNhap rpt = new xrpDonDatHangChuaCoPhieuNhap(Program.mGroup);
+            
+            ReportPrintTool print = new ReportPrintTool(rpt);
+
+            print.ShowPreviewDialog();
+        }
     }
 }

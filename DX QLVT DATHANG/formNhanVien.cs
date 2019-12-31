@@ -200,6 +200,7 @@ namespace DX_QLVT_DATHANG
 
         }
 
+
         private void btnGhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
 
@@ -245,6 +246,7 @@ namespace DX_QLVT_DATHANG
                 txtLuong.Focus();
                 return;
             }
+
             if (flag == true)
             {
                     try
