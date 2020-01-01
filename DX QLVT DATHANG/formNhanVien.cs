@@ -24,11 +24,6 @@ namespace DX_QLVT_DATHANG
 
         private void formNhanVien_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'DS.SP_DSCN' table. You can move, or remove it, as needed.
-
-            // TODO: This line of code loads data into the 'DS.ChiNhanh' table. You can move, or remove it, as needed.
-
-            // TODO: This line of code loads data into the 'DS.DatHang' table. You can move, or remove it, as needed.
             DS.EnforceConstraints = false;
 
             // TODO: This line of code loads data into the 'dS.NhanVien' table. You can move, or remove it, as needed.
@@ -62,11 +57,7 @@ namespace DX_QLVT_DATHANG
             }
 
             else cmbChiNhanh.Enabled = false;
-            //groupControl1.Enabled = false;
-            //if (bdsNV.Count = 0) btnXoa.Enabled = false;
-            //groupControl1.Enabled = false;
-
-
+            groupControl1.Enabled = false;
         }
 
         private void nhanVienBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -150,6 +141,7 @@ namespace DX_QLVT_DATHANG
         private void btnUndo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             bdsNV.CancelEdit();
+            this.nhanVienTableAdapter.Fill(this.DS.NhanVien);
         }
 
         private void btnReload_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

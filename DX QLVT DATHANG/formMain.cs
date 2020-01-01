@@ -84,11 +84,11 @@ namespace DX_QLVT_DATHANG
 
         private void barButtonItem4_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Form frm = this.CheckExists(typeof(formPhieuNhap));
+            Form frm = this.CheckExists(typeof(formPhieuNhap1));
             if (frm != null) frm.Activate();
             else
             {
-                formPhieuNhap f = new formPhieuNhap();
+                formPhieuNhap1 f = new formPhieuNhap1();
                 f.MdiParent = this;
                 f.Show();
             }

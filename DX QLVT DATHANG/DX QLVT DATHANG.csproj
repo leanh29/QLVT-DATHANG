@@ -108,6 +108,12 @@
     <Compile Include="formPhieuNhap.Designer.cs">
       <DependentUpon>formPhieuNhap.cs</DependentUpon>
     </Compile>
+    <Compile Include="formPhieuNhap1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formPhieuNhap1.Designer.cs">
+      <DependentUpon>formPhieuNhap1.cs</DependentUpon>
+    </Compile>
     <Compile Include="formPhieuXuat.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -187,6 +193,12 @@
     <Compile Include="xrpTinhHinhHoatDong1NV.Designer.cs">
       <DependentUpon>xrpTinhHinhHoatDong1NV.cs</DependentUpon>
     </Compile>
+    <Compile Include="xrpTongHopNhatXuat.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="xrpTongHopNhatXuat.Designer.cs">
+      <DependentUpon>xrpTongHopNhatXuat.cs</DependentUpon>
+    </Compile>
     <Compile Include="xrpVATTU.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -210,6 +222,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formPhieuNhap.resx">
       <DependentUpon>formPhieuNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formPhieuNhap1.resx">
+      <DependentUpon>formPhieuNhap1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formPhieuXuat.resx">
       <DependentUpon>formPhieuXuat.cs</DependentUpon>
@@ -256,6 +271,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="xrpTinhHinhHoatDong1NV.resx">
       <DependentUpon>xrpTinhHinhHoatDong1NV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="xrpTongHopNhatXuat.resx">
+      <DependentUpon>xrpTongHopNhatXuat.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="xrpVATTU.resx">
       <DependentUpon>xrpVATTU.cs</DependentUpon>

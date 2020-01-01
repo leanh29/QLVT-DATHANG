@@ -123,4 +123,10 @@
   <data name="sqlDataSource1.ResultSchemaSerializable" xml:space="preserve">
     <value>PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxWaWV3IE5hbWU9IlNQX1JQX1RvbmdIb3BOaGFwWHVhdCI+PEZpZWxkIE5hbWU9Ik5HQVkiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iTkhBUCIgVHlwZT0iSW50MzIiIC8+PEZpZWxkIE5hbWU9IlRJTEVfTkhBUCIgVHlwZT0iSW50MzIiIC8+PEZpZWxkIE5hbWU9IlhVQVQiIFR5cGU9IkludDMyIiAvPjxGaWVsZCBOYW1lPSJUSUxFX1hVQVQiIFR5cGU9IkludDMyIiAvPjwvVmlldz48L0RhdGFTZXQ+</value>
   </data>
+  <metadata name="ds1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 56</value>
+  </metadata>
+  <metadata name="sP_RP_TongHopNhapXuatTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 95</value>
+  </metadata>
 </root>

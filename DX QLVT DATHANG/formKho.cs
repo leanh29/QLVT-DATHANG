@@ -165,7 +165,7 @@ namespace DX_QLVT_DATHANG
                             MessageBox.Show("Ghi nhân viên thành công!");
                             //gcNhanVien.Enabled = true;
                             panelControl1.Enabled = false;
-                            btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = btnReload.Enabled = btnIn.Enabled = true;
+                            btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = btnReload.Enabled =  true;
                             return;
                         }
                         catch (Exception ex)
@@ -197,7 +197,7 @@ namespace DX_QLVT_DATHANG
                     MessageBox.Show("Ghi nhân viên thành công!");
                     //gcNhanVien.Enabled = true;
                     panelControl1.Enabled = false;
-                    btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = btnReload.Enabled = btnIn.Enabled = true;
+                    btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = btnReload.Enabled = true;
                     return;
                 }
                 catch (Exception ex)
