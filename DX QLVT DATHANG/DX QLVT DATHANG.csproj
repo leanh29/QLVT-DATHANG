@@ -126,11 +126,23 @@
     <Compile Include="formrpVATU.Designer.cs">
       <DependentUpon>formrpVATU.cs</DependentUpon>
     </Compile>
+    <Compile Include="formTaoLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formTaoLogin.Designer.cs">
+      <DependentUpon>formTaoLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="formVatTu.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="formVatTu.Designer.cs">
       <DependentUpon>formVatTu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frpTinhHinhHoatDong1NV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frpTinhHinhHoatDong1NV.Designer.cs">
+      <DependentUpon>frpTinhHinhHoatDong1NV.cs</DependentUpon>
     </Compile>
     <Compile Include="frpChiTietPhieuTrongKhoangTheoLoai.cs">
       <SubType>Form</SubType>
@@ -138,11 +150,11 @@
     <Compile Include="frpChiTietPhieuTrongKhoangTheoLoai.Designer.cs">
       <DependentUpon>frpChiTietPhieuTrongKhoangTheoLoai.cs</DependentUpon>
     </Compile>
-    <Compile Include="frpTinhHinhHoatDong1NhanVien.cs">
+    <Compile Include="frpTongHopNhapXuat.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frpTinhHinhHoatDong1NhanVien.Designer.cs">
-      <DependentUpon>frpTinhHinhHoatDong1NhanVien.cs</DependentUpon>
+    <Compile Include="frpTongHopNhapXuat.Designer.cs">
+      <DependentUpon>frpTongHopNhapXuat.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -168,6 +180,12 @@
     </Compile>
     <Compile Include="xrpNV.Designer.cs">
       <DependentUpon>xrpNV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xrpTinhHinhHoatDong1NV.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="xrpTinhHinhHoatDong1NV.Designer.cs">
+      <DependentUpon>xrpTinhHinhHoatDong1NV.cs</DependentUpon>
     </Compile>
     <Compile Include="xrpVATTU.cs">
       <SubType>Component</SubType>
@@ -202,14 +220,20 @@
     <EmbeddedResource Include="formrpVATU.resx">
       <DependentUpon>formrpVATU.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="formTaoLogin.resx">
+      <DependentUpon>formTaoLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formVatTu.resx">
       <DependentUpon>formVatTu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frpTinhHinhHoatDong1NV.resx">
+      <DependentUpon>frpTinhHinhHoatDong1NV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frpChiTietPhieuTrongKhoangTheoLoai.resx">
       <DependentUpon>frpChiTietPhieuTrongKhoangTheoLoai.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frpTinhHinhHoatDong1NhanVien.resx">
-      <DependentUpon>frpTinhHinhHoatDong1NhanVien.cs</DependentUpon>
+    <EmbeddedResource Include="frpTongHopNhapXuat.resx">
+      <DependentUpon>frpTongHopNhapXuat.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -229,6 +253,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="xrpNV.resx">
       <DependentUpon>xrpNV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="xrpTinhHinhHoatDong1NV.resx">
+      <DependentUpon>xrpTinhHinhHoatDong1NV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="xrpVATTU.resx">
       <DependentUpon>xrpVATTU.cs</DependentUpon>

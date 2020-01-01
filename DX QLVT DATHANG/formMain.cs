@@ -161,5 +161,39 @@ namespace DX_QLVT_DATHANG
 
             print.ShowPreviewDialog();
         }
+
+        private void barButtonItem11_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+           
+        }
+
+        private void barButtonItem14_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+        }
+
+        private void barButtonItem14_ItemClick_1(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(frpTinhHinhHoatDong1NV));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frpTinhHinhHoatDong1NV f = new frpTinhHinhHoatDong1NV();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void barButtonItem15_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(frpTongHopNhapXuat));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frpTongHopNhapXuat f = new frpTongHopNhapXuat();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
     }
 }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace DX_QLVT_DATHANG
 {
-    public partial class frpTinhHinhHoatDong1NhanVien : Form
+    public partial class frpTongHopNhapXuat : Form
     {
-        public frpTinhHinhHoatDong1NhanVien()
+        public frpTongHopNhapXuat()
         {
             InitializeComponent();
         }

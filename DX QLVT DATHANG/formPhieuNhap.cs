@@ -36,7 +36,8 @@ namespace DX_QLVT_DATHANG
             
             
             DS.EnforceConstraints = false;
-
+           
+            
             //this.vattuTableAdapter.Connection.ConnectionString = Program.connstr;
             //this.vattuTableAdapter.Fill(this.DS.Vattu);
 
@@ -64,6 +65,10 @@ namespace DX_QLVT_DATHANG
 
             this.phieuNhapTableAdapter.Connection.ConnectionString = Program.connstr;
             this.phieuNhapTableAdapter.Fill(this.DS.PhieuNhap);
+
+            this.dSVT_DDH.Connection.ConnectionString = Program.connstr;
+            this.dSVT_DDH.Fill(this.DS.SP_DS_VatTuTheoDDH, cmbMADDH.SelectedValue.ToString());
+            MessageBox.Show(cmbMADDH.SelectedValue.ToString());
             cmbChiNhanh.DataSource = Program.bds_dspm;
             cmbChiNhanh.DisplayMember = "TENCN";
             cmbChiNhanh.ValueMember = "TENSERVER";
@@ -126,6 +131,7 @@ namespace DX_QLVT_DATHANG
 
                 this.phieuNhapTableAdapter.Connection.ConnectionString = Program.connstr;
                 this.phieuNhapTableAdapter.Fill(this.DS.PhieuNhap);
+
             }
         }
 
@@ -184,6 +190,8 @@ namespace DX_QLVT_DATHANG
             string vt = vitri.ToString();
             gvCTPN.Rows[vitri].ReadOnly = false;
             flag1 = true;
+            this.dSVT_DDH.Connection.ConnectionString = Program.connstr;
+            this.dSVT_DDH.Fill(this.DS.SP_DS_VatTuTheoDDH, cmbMADDH.SelectedValue.ToString());
         }
 
         private void ghiVTToolStripMenuItem_Click(object sender, EventArgs e)
@@ -233,7 +241,24 @@ namespace DX_QLVT_DATHANG
 
         private void cmbMADDH_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            //this.dSVT_DDH.Connection.ConnectionString = Program.connstr;
+            //this.dSVT_DDH.Fill(this.DS.SP_DS_VatTuTheoDDH, cmbMADDH.SelectedValue.ToString());
+            //MessageBox.Show(cmbMADDH.SelectedValue.ToString());
         }
+
+        
+
+        //private void fillToolStripButton_Click_1(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        this.dSVT_DDH.Fill(this.DS.SP_DS_VatTuTheoDDH, cmbMADDH.SelectedValue.ToString());
+        //    }
+        //    catch (System.Exception ex)
+        //    {
+        //        System.Windows.Forms.MessageBox.Show(ex.Message);
+        //    }
+
+        //}
     }
 }

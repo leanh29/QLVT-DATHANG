@@ -45,8 +45,8 @@
             this.btnSua = new DevExpress.XtraBars.BarButtonItem();
             this.btnUndo = new DevExpress.XtraBars.BarButtonItem();
             this.btnReload = new DevExpress.XtraBars.BarButtonItem();
-            this.btnIn = new DevExpress.XtraBars.BarButtonItem();
             this.btnThoat = new DevExpress.XtraBars.BarButtonItem();
+            this.btnChuyenCN = new DevExpress.XtraBars.BarButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
@@ -78,9 +78,15 @@
             this.colMACN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTrangThaiXoa = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.cmbCNMoi = new System.Windows.Forms.ComboBox();
+            this.sP_DSCNBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnChuyen = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtMaNVMoi = new System.Windows.Forms.TextBox();
             this.txtmaCN = new System.Windows.Forms.TextBox();
             this.txtLuong = new DevExpress.XtraEditors.TextEdit();
-            this.nGAYSINHDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.txtNS = new System.Windows.Forms.DateTimePicker();
             this.txtDiaChi = new DevExpress.XtraEditors.TextEdit();
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
             this.txtHo = new DevExpress.XtraEditors.TextEdit();
@@ -91,6 +97,7 @@
             this.phieuNhapTableAdapter = new DX_QLVT_DATHANG.DSTableAdapters.PhieuNhapTableAdapter();
             this.bdsDH = new System.Windows.Forms.BindingSource(this.components);
             this.datHangTableAdapter = new DX_QLVT_DATHANG.DSTableAdapters.DatHangTableAdapter();
+            this.sP_DSCNTableAdapter = new DX_QLVT_DATHANG.DSTableAdapters.SP_DSCNTableAdapter();
             mANVLabel = new System.Windows.Forms.Label();
             hOLabel = new System.Windows.Forms.Label();
             tENLabel = new System.Windows.Forms.Label();
@@ -108,6 +115,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sP_DSCNBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLuong.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDiaChi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).BeginInit();
@@ -148,7 +156,7 @@
             // dIACHILabel
             // 
             dIACHILabel.AutoSize = true;
-            dIACHILabel.Location = new System.Drawing.Point(360, 50);
+            dIACHILabel.Location = new System.Drawing.Point(263, 47);
             dIACHILabel.Name = "dIACHILabel";
             dIACHILabel.Size = new System.Drawing.Size(47, 13);
             dIACHILabel.TabIndex = 6;
@@ -157,7 +165,7 @@
             // nGAYSINHLabel
             // 
             nGAYSINHLabel.AutoSize = true;
-            nGAYSINHLabel.Location = new System.Drawing.Point(345, 101);
+            nGAYSINHLabel.Location = new System.Drawing.Point(248, 98);
             nGAYSINHLabel.Name = "nGAYSINHLabel";
             nGAYSINHLabel.Size = new System.Drawing.Size(62, 13);
             nGAYSINHLabel.TabIndex = 8;
@@ -166,7 +174,7 @@
             // lUONGLabel
             // 
             lUONGLabel.AutoSize = true;
-            lUONGLabel.Location = new System.Drawing.Point(360, 147);
+            lUONGLabel.Location = new System.Drawing.Point(263, 144);
             lUONGLabel.Name = "lUONGLabel";
             lUONGLabel.Size = new System.Drawing.Size(45, 13);
             lUONGLabel.TabIndex = 10;
@@ -199,12 +207,12 @@
             this.btnXoa,
             this.btnUndo,
             this.btnReload,
-            this.btnIn,
             this.btnThoat,
             this.btnSua,
-            this.btnGhi});
+            this.btnGhi,
+            this.btnChuyenCN});
             this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 13;
+            this.barManager1.MaxItemId = 14;
             this.barManager1.StatusBar = this.bar3;
             // 
             // bar2
@@ -220,8 +228,8 @@
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnSua, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnUndo, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnReload, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnIn, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnThoat, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnThoat, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnChuyenCN)});
             this.bar2.OptionsBar.MultiLine = true;
             this.bar2.OptionsBar.UseWholeRow = true;
             this.bar2.Text = "Main menu";
@@ -274,14 +282,6 @@
             this.btnReload.Name = "btnReload";
             this.btnReload.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnReload_ItemClick);
             // 
-            // btnIn
-            // 
-            this.btnIn.Caption = "In";
-            this.btnIn.Glyph = ((System.Drawing.Image)(resources.GetObject("btnIn.Glyph")));
-            this.btnIn.Id = 9;
-            this.btnIn.Name = "btnIn";
-            this.btnIn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnIn_ItemClick);
-            // 
             // btnThoat
             // 
             this.btnThoat.Caption = "Thoát";
@@ -289,6 +289,13 @@
             this.btnThoat.Id = 10;
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThoat_ItemClick);
+            // 
+            // btnChuyenCN
+            // 
+            this.btnChuyenCN.Caption = "Chuyển CN";
+            this.btnChuyenCN.Id = 13;
+            this.btnChuyenCN.Name = "btnChuyenCN";
+            this.btnChuyenCN.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnChuyenCN_ItemClick);
             // 
             // bar3
             // 
@@ -307,28 +314,28 @@
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Size = new System.Drawing.Size(691, 60);
+            this.barDockControlTop.Size = new System.Drawing.Size(958, 40);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 436);
-            this.barDockControlBottom.Size = new System.Drawing.Size(691, 23);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 488);
+            this.barDockControlBottom.Size = new System.Drawing.Size(958, 23);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 60);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 376);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 40);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 448);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(691, 60);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 376);
+            this.barDockControlRight.Location = new System.Drawing.Point(958, 40);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 448);
             // 
             // barButtonItem1
             // 
@@ -428,10 +435,11 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.cmbChiNhanh);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 60);
+            this.panel1.Location = new System.Drawing.Point(0, 40);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(691, 58);
+            this.panel1.Size = new System.Drawing.Size(958, 58);
             this.panel1.TabIndex = 10;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // bdsNV
             // 
@@ -442,11 +450,11 @@
             // 
             this.gcNhanVien.DataSource = this.bdsNV;
             this.gcNhanVien.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gcNhanVien.Location = new System.Drawing.Point(0, 118);
+            this.gcNhanVien.Location = new System.Drawing.Point(0, 98);
             this.gcNhanVien.MainView = this.gridView1;
             this.gcNhanVien.MenuManager = this.barManager1;
             this.gcNhanVien.Name = "gcNhanVien";
-            this.gcNhanVien.Size = new System.Drawing.Size(691, 145);
+            this.gcNhanVien.Size = new System.Drawing.Size(958, 145);
             this.gcNhanVien.TabIndex = 14;
             this.gcNhanVien.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -523,12 +531,17 @@
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.cmbCNMoi);
+            this.groupControl1.Controls.Add(this.label3);
+            this.groupControl1.Controls.Add(this.btnChuyen);
+            this.groupControl1.Controls.Add(this.label2);
+            this.groupControl1.Controls.Add(this.txtMaNVMoi);
             this.groupControl1.Controls.Add(mACNLabel);
             this.groupControl1.Controls.Add(this.txtmaCN);
             this.groupControl1.Controls.Add(lUONGLabel);
             this.groupControl1.Controls.Add(this.txtLuong);
             this.groupControl1.Controls.Add(nGAYSINHLabel);
-            this.groupControl1.Controls.Add(this.nGAYSINHDateTimePicker);
+            this.groupControl1.Controls.Add(this.txtNS);
             this.groupControl1.Controls.Add(dIACHILabel);
             this.groupControl1.Controls.Add(this.txtDiaChi);
             this.groupControl1.Controls.Add(tENLabel);
@@ -538,11 +551,62 @@
             this.groupControl1.Controls.Add(mANVLabel);
             this.groupControl1.Controls.Add(this.txtMaNV);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl1.Location = new System.Drawing.Point(0, 263);
+            this.groupControl1.Location = new System.Drawing.Point(0, 243);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(691, 173);
+            this.groupControl1.Size = new System.Drawing.Size(958, 245);
             this.groupControl1.TabIndex = 20;
             this.groupControl1.Paint += new System.Windows.Forms.PaintEventHandler(this.groupControl1_Paint);
+            // 
+            // cmbCNMoi
+            // 
+            this.cmbCNMoi.DataSource = this.sP_DSCNBindingSource;
+            this.cmbCNMoi.DisplayMember = "MACN";
+            this.cmbCNMoi.FormattingEnabled = true;
+            this.cmbCNMoi.Location = new System.Drawing.Point(625, 95);
+            this.cmbCNMoi.Name = "cmbCNMoi";
+            this.cmbCNMoi.Size = new System.Drawing.Size(300, 21);
+            this.cmbCNMoi.TabIndex = 18;
+            this.cmbCNMoi.ValueMember = "MACN";
+            // 
+            // sP_DSCNBindingSource
+            // 
+            this.sP_DSCNBindingSource.DataMember = "SP_DSCN";
+            this.sP_DSCNBindingSource.DataSource = this.DS;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(573, 102);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(40, 13);
+            this.label3.TabIndex = 18;
+            this.label3.Text = "CN Moi";
+            // 
+            // btnChuyen
+            // 
+            this.btnChuyen.Location = new System.Drawing.Point(634, 133);
+            this.btnChuyen.Name = "btnChuyen";
+            this.btnChuyen.Size = new System.Drawing.Size(75, 23);
+            this.btnChuyen.TabIndex = 17;
+            this.btnChuyen.Text = "Chuyển";
+            this.btnChuyen.UseVisualStyleBackColor = true;
+            this.btnChuyen.Click += new System.EventHandler(this.btnChuyen_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(566, 68);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(54, 13);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "MaNVMOI";
+            // 
+            // txtMaNVMoi
+            // 
+            this.txtMaNVMoi.Location = new System.Drawing.Point(625, 65);
+            this.txtMaNVMoi.Name = "txtMaNVMoi";
+            this.txtMaNVMoi.Size = new System.Drawing.Size(100, 21);
+            this.txtMaNVMoi.TabIndex = 14;
             // 
             // txtmaCN
             // 
@@ -557,24 +621,25 @@
             // txtLuong
             // 
             this.txtLuong.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsNV, "LUONG", true));
-            this.txtLuong.Location = new System.Drawing.Point(413, 144);
+            this.txtLuong.Location = new System.Drawing.Point(316, 141);
             this.txtLuong.MenuManager = this.barManager1;
             this.txtLuong.Name = "txtLuong";
             this.txtLuong.Size = new System.Drawing.Size(100, 20);
             this.txtLuong.TabIndex = 11;
             // 
-            // nGAYSINHDateTimePicker
+            // txtNS
             // 
-            this.nGAYSINHDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bdsNV, "NGAYSINH", true));
-            this.nGAYSINHDateTimePicker.Location = new System.Drawing.Point(413, 97);
-            this.nGAYSINHDateTimePicker.Name = "nGAYSINHDateTimePicker";
-            this.nGAYSINHDateTimePicker.Size = new System.Drawing.Size(200, 21);
-            this.nGAYSINHDateTimePicker.TabIndex = 9;
+            this.txtNS.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bdsNV, "NGAYSINH", true));
+            this.txtNS.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.txtNS.Location = new System.Drawing.Point(316, 94);
+            this.txtNS.Name = "txtNS";
+            this.txtNS.Size = new System.Drawing.Size(200, 21);
+            this.txtNS.TabIndex = 9;
             // 
             // txtDiaChi
             // 
             this.txtDiaChi.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsNV, "DIACHI", true));
-            this.txtDiaChi.Location = new System.Drawing.Point(413, 47);
+            this.txtDiaChi.Location = new System.Drawing.Point(316, 44);
             this.txtDiaChi.MenuManager = this.barManager1;
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(100, 20);
@@ -634,11 +699,15 @@
             // 
             this.datHangTableAdapter.ClearBeforeFill = true;
             // 
+            // sP_DSCNTableAdapter
+            // 
+            this.sP_DSCNTableAdapter.ClearBeforeFill = true;
+            // 
             // formNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(691, 459);
+            this.ClientSize = new System.Drawing.Size(958, 511);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.gcNhanVien);
             this.Controls.Add(this.panel1);
@@ -661,6 +730,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sP_DSCNBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLuong.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDiaChi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).EndInit();
@@ -701,7 +771,6 @@
         private DevExpress.XtraBars.BarButtonItem btnXoa;
         private DevExpress.XtraBars.BarButtonItem btnUndo;
         private DevExpress.XtraBars.BarButtonItem btnReload;
-        private DevExpress.XtraBars.BarButtonItem btnIn;
         private DevExpress.XtraBars.BarButtonItem btnThoat;
         private System.Windows.Forms.BindingSource bdsNV;
         private DevExpress.XtraGrid.GridControl gcNhanVien;
@@ -719,7 +788,7 @@
         private DevExpress.XtraEditors.TextEdit txtHo;
         private System.Windows.Forms.TextBox txtmaCN;
         private DevExpress.XtraEditors.TextEdit txtLuong;
-        private System.Windows.Forms.DateTimePicker nGAYSINHDateTimePicker;
+        private System.Windows.Forms.DateTimePicker txtNS;
         private DevExpress.XtraEditors.TextEdit txtDiaChi;
         private DevExpress.XtraEditors.TextEdit txtTen;
         private DevExpress.XtraBars.BarButtonItem btnSua;
@@ -730,5 +799,13 @@
         private DSTableAdapters.PhieuNhapTableAdapter phieuNhapTableAdapter;
         private System.Windows.Forms.BindingSource bdsDH;
         private DSTableAdapters.DatHangTableAdapter datHangTableAdapter;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtMaNVMoi;
+        private DevExpress.XtraBars.BarButtonItem btnChuyenCN;
+        private System.Windows.Forms.Button btnChuyen;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cmbCNMoi;
+        private System.Windows.Forms.BindingSource sP_DSCNBindingSource;
+        private DSTableAdapters.SP_DSCNTableAdapter sP_DSCNTableAdapter;
     }
 }

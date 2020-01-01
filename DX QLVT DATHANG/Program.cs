@@ -19,6 +19,7 @@ namespace DX_QLVT_DATHANG
         public static SqlCommand sqlcmd = new SqlCommand();
         public static String connstr;
         public static SqlDataReader myReader;
+        public static SqlDataReader dataReader;
         public static SqlDataReader myReader1;
         public static String servername = ""; // luu ten server tra vè ở form dang nhap
         public static String username = "";
