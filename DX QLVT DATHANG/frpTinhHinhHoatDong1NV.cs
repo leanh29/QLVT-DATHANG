@@ -29,6 +29,10 @@ namespace DX_QLVT_DATHANG
             cmbChiNhanh.DisplayMember = "TENCN";
             cmbChiNhanh.ValueMember = "TENSERVER";
             cmbChiNhanh.SelectedIndex = Program.mChinhanh;
+            if (Program.mGroup == "CongTy")
+            {
+                cmbChiNhanh.Enabled = false;
+            }
         }
 
         private void cmbHOTEN_SelectedIndexChanged(object sender, EventArgs e)
@@ -76,9 +80,19 @@ namespace DX_QLVT_DATHANG
         private void btnPre_Click(object sender, EventArgs e)
         {
             //MessageBox.Show(Convert.ToInt16(txtMANV.Text)+ cmbLoaiPhieu.Text.Substring(0, 1) + String.Format("{0:yyyy/MM/dd}", dtpFrom) + String.Format("{0:yyyy/MM/dd}", dtpTo));
+           
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
             MessageBox.Show(dtpFrom.Value.ToString("yyyy/MM/dd"));
             xrpTinhHinhHoatDong1NV rpt = new xrpTinhHinhHoatDong1NV(Convert.ToInt16(txtMANV.Text), cmbLoaiPhieu.Text.Substring(0, 1), dtpFrom.Value.ToString("yyyy/MM/dd"), dtpTo.Value.ToString("yyyy/MM/dd"));
-
+            rpt.lblTieuDe.Text = "TÌNH HÌNH HOẠT ĐỘNG CỦA NHÂN VIÊN " + cmbHOTEN.SelectedText + " TỪ " + dtpFrom.Value.ToString("yyyy/MM/dd") + " ĐẾN " + dtpTo.Value.ToString("yyyy/MM/dd");
             ReportPrintTool print = new ReportPrintTool(rpt);
 
             print.ShowPreviewDialog();

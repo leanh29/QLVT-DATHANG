@@ -30,6 +30,8 @@ namespace DX_QLVT_DATHANG
 
         private void formPhieuXuat_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'DS.Vattu' table. You can move, or remove it, as needed.
+           
             // TODO: This line of code loads data into the 'DS.Kho' table. You can move, or remove it, as needed.
             
             // TODO: This line of code loads data into the 'DS.DSNhanVien' table. You can move, or remove it, as needed.
@@ -48,6 +50,8 @@ namespace DX_QLVT_DATHANG
             this.phieuXuatTableAdapter.Connection.ConnectionString = Program.connstr;
             this.phieuXuatTableAdapter.Fill(this.DS.PhieuXuat);
 
+            this.vattuTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.vattuTableAdapter.Fill(this.DS.Vattu);
             cmbChiNhanh.DataSource = Program.bds_dspm;
             cmbChiNhanh.DisplayMember = "TENCN";
             cmbChiNhanh.ValueMember = "TENSERVER";
@@ -57,6 +61,7 @@ namespace DX_QLVT_DATHANG
             {
                 cmbChiNhanh.Enabled = true;
                 btnThem.Enabled = btnXoa.Enabled = btnUndo.Enabled = btnGhi.Enabled = btnSua.Enabled = false;
+                gvCTPX.Enabled = false;
             }
 
             else cmbChiNhanh.Enabled = false;
@@ -132,19 +137,64 @@ namespace DX_QLVT_DATHANG
 
         private void btnGhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            try
+            if (flag == true)
             {
-                bdsPX.EndEdit();
-                bdsPX.ResetCurrentItem();
-                this.phieuXuatTableAdapter.Connection.ConnectionString = Program.connstr;
-                this.phieuXuatTableAdapter.Update(this.DS.PhieuXuat);
-                MessageBox.Show("Ghi đơn đặt hàng thành công");
-                return;
+                try
+                {
+                    
+                    String str = "dbo.SP_CHECKTRUNGPN";
+                    Program.sqlcmd = Program.conn.CreateCommand();
+                    Program.sqlcmd.CommandType = CommandType.StoredProcedure;
+                    Program.sqlcmd.CommandText = str;
+                    Program.sqlcmd.Parameters.Add("@X", SqlDbType.NChar).Value = txtMAPX.Text;
+                    Program.sqlcmd.Parameters.Add("@Ret", SqlDbType.NChar).Direction = ParameterDirection.ReturnValue;
+                    Program.sqlcmd.ExecuteNonQuery();
+                    String ret = Program.sqlcmd.Parameters["@RET"].Value.ToString();
+                    if (ret == "1")
+                    {
+                        MessageBox.Show("Mã đơn đặt hàng bị trùng");
+                        return;
+                    }
+                    else
+                    {
+                        try
+                        {
+                            bdsPX.EndEdit();
+                            bdsPX.ResetCurrentItem();
+                            this.phieuXuatTableAdapter.Connection.ConnectionString = Program.connstr;
+                            this.phieuXuatTableAdapter.Update(this.DS.PhieuXuat);
+                            MessageBox.Show("Ghi đơn đặt hàng thành công");
+                            return;
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Lỗi ghi đơn đặt hàng" + ex.Message, "", MessageBoxButtons.OK);
+                            return;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi ghi đơn đặt hàng" + ex.Message, "", MessageBoxButtons.OK);
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Lỗi ghi đơn đặt hàng" + ex.Message, "", MessageBoxButtons.OK);
+                try
+                {
+                    bdsPX.EndEdit();
+                    bdsPX.ResetCurrentItem();
+                    this.phieuXuatTableAdapter.Connection.ConnectionString = Program.connstr;
+                    this.phieuXuatTableAdapter.Update(this.DS.PhieuXuat);
+                    MessageBox.Show("Ghi đơn đặt hàng thành công");
+                    return;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi ghi đơn đặt hàng" + ex.Message, "", MessageBoxButtons.OK);
+                }
             }
+            
         }
 
         private void thêmToolStripMenuItem_Click(object sender, EventArgs e)
@@ -161,32 +211,84 @@ namespace DX_QLVT_DATHANG
             if (flag1 == true)
             {
                 vitri = bdsCTPX.Position;
-                if (gvCTPX.Rows[vitri].Cells[2].Value == DBNull.Value)
+                if (gvCTPX.Rows[vitri].Cells[1].Value == DBNull.Value)
                 {
                     MessageBox.Show("Vật tư không được để trống");
                     return;
                 }
-            }
-            try
-            {
-                bdsCTPX.EndEdit();
-                bdsCTPX.ResetCurrentItem();
-                this.cTPXTableAdapter.Connection.ConnectionString = Program.connstr;
-                this.cTPXTableAdapter.Update(this.DS.CTPX);
-                MessageBox.Show("Ghi vật tư vào đơn đặt hàng thành công");
-                //string s = cmbMAVT.
-                return;
-            }
-            catch (Exception ee)
-            {
-
-                if (ee.Message.Contains("duplicate"))
+                vitri = bdsCTPX.Position;
+                if (gvCTPX.Rows[vitri].Cells[2].Value == DBNull.Value)
                 {
-                    MessageBox.Show("Vật tư đã tồn tại trong đơn đặt hàng");
+                    MessageBox.Show("Số lượng không được để trống");
                     return;
                 }
-                MessageBox.Show("lỗi ghi vât tư" + ee.Message);
-            }
+                }
+            
+                try
+                    {
+                        String str = "dbo.SP_SoLuongTon";
+                        Program.sqlcmd = Program.conn.CreateCommand();
+                        Program.sqlcmd.CommandType = CommandType.StoredProcedure;
+                        Program.sqlcmd.CommandText = str;
+                        Program.sqlcmd.Parameters.Add("@mavt", SqlDbType.NChar).Value = gvCTPX.Rows[vitri].Cells[1].Value;
+                        Program.sqlcmd.Parameters.Add("@soluong", SqlDbType.Int).Value = gvCTPX.Rows[vitri].Cells[2].Value;
+                        Program.sqlcmd.Parameters.Add("@Ret", SqlDbType.NChar).Direction = ParameterDirection.ReturnValue;
+                        Program.sqlcmd.ExecuteNonQuery();
+                        String ret = Program.sqlcmd.Parameters["@RET"].Value.ToString();
+                        if (ret == "1")
+                        {
+                            MessageBox.Show("Không đủ hàng để xuất");
+                            return;
+                        }
+                        else
+                        {
+                            try {
+                                bdsCTPX.EndEdit();
+                                bdsCTPX.ResetCurrentItem();
+                                this.cTPXTableAdapter.Connection.ConnectionString = Program.connstr;
+                                this.cTPXTableAdapter.Update(this.DS.CTPX);
+                                MessageBox.Show("Ghi vật tư vào đơn đặt hàng thành công");
+                                //string s = cmbMAVT.
+                                return;
+                            }
+                            
+
+                            catch (Exception ee)
+                            {
+
+                                if (ee.Message.Contains("duplicate"))
+                                {
+                                    MessageBox.Show("Vật tư đã tồn tại trong đơn đặt hàng");
+                                    return;
+                                }
+                                MessageBox.Show("lỗi ghi vât tư" + ee.Message);
+                            }
+                        }
+                    
+                    }
+                catch (Exception ef)
+                {
+                    MessageBox.Show("Lỗi kiểm tra số lượng tồn " + ef.Message);
+                }
+        }
+
+        private void btnThoat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Close();
+        }
+
+        private void xóaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bdsCTPX.RemoveCurrent();
+            this.cTPXTableAdapter.Update(this.DS.CTPX);
+            MessageBox.Show("Xóa thành công");
+        }
+
+        private void sửaVTToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            vitri = bdsCTPX.Position;
+            gvCTPX.Rows[vitri].ReadOnly = false;
+            flag1 = false;
         }
     }
 }

@@ -369,6 +369,7 @@
             // 
             this.colMAKHO.FieldName = "MAKHO";
             this.colMAKHO.Name = "colMAKHO";
+            this.colMAKHO.OptionsColumn.AllowEdit = false;
             this.colMAKHO.Visible = true;
             this.colMAKHO.VisibleIndex = 0;
             // 
@@ -376,6 +377,7 @@
             // 
             this.colTENKHO.FieldName = "TENKHO";
             this.colTENKHO.Name = "colTENKHO";
+            this.colTENKHO.OptionsColumn.AllowEdit = false;
             this.colTENKHO.Visible = true;
             this.colTENKHO.VisibleIndex = 1;
             // 
@@ -383,6 +385,7 @@
             // 
             this.colDIACHI.FieldName = "DIACHI";
             this.colDIACHI.Name = "colDIACHI";
+            this.colDIACHI.OptionsColumn.AllowEdit = false;
             this.colDIACHI.Visible = true;
             this.colDIACHI.VisibleIndex = 2;
             // 
@@ -390,6 +393,7 @@
             // 
             this.colMACN.FieldName = "MACN";
             this.colMACN.Name = "colMACN";
+            this.colMACN.OptionsColumn.AllowEdit = false;
             this.colMACN.Visible = true;
             this.colMACN.VisibleIndex = 3;
             // 

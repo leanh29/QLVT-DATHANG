@@ -55,9 +55,13 @@ namespace DX_QLVT_DATHANG
                 cmbChiNhanh.Enabled = true;
                 btnThem.Enabled = btnXoa.Enabled = btnUndo.Enabled = btnGhi.Enabled = btnSua.Enabled = false;
             }
-
-            else cmbChiNhanh.Enabled = false;
+            if (Program.mGroup == "User" || Program.mGroup == "ChiNhanh")
+            {
+                btnChuyenCN.Enabled = false;
+            }
+            cmbChiNhanh.Enabled = false;
             groupControl1.Enabled = false;
+            panelControl1.Enabled = false;
         }
 
         private void nhanVienBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -206,10 +210,10 @@ namespace DX_QLVT_DATHANG
         private void btnGhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
 
-            if (txtMaNV.Text.Trim() == "")
+            if (txtMANV.Text.Trim() == "")
             {
                 MessageBox.Show("Mã Nhân viên không được để trống!");
-                txtMaNV.Focus();
+                txtMANV.Focus();
                 return;
             }
             if (txtHo.Text.Trim() == "")
@@ -257,7 +261,7 @@ namespace DX_QLVT_DATHANG
                     Program.sqlcmd = Program.conn.CreateCommand();
                     Program.sqlcmd.CommandType = CommandType.StoredProcedure;
                     Program.sqlcmd.CommandText = str;
-                    Program.sqlcmd.Parameters.Add("@X", SqlDbType.Int).Value = txtMaNV.Text;
+                    Program.sqlcmd.Parameters.Add("@X", SqlDbType.Int).Value = txtMANV.Text;
                     Program.sqlcmd.Parameters.Add("@Ret", SqlDbType.Int).Direction = ParameterDirection.ReturnValue;
                     Program.sqlcmd.ExecuteNonQuery();
                     String ret = Program.sqlcmd.Parameters["@RET"].Value.ToString();
@@ -364,11 +368,12 @@ namespace DX_QLVT_DATHANG
 
         private void btnChuyenCN_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            panelControl1.Enabled = true;
             if (bdsDH.Count > 0 || bdsPN.Count > 0 || bdsPX.Count > 0)
             {
                 // Nhân viên này dã l?p phi?u
                 MessageBox.Show("Nhân viên dã lập phiếu", "", MessageBoxButtons.OK);
-                txtMaNV.Enabled = false;
+                txtMANV.Enabled = false;
                 gcNhanVien.Enabled = false;
                 groupControl1.Enabled = true;
                 txtHo.Enabled = txtTen.Enabled = txtDiaChi.Enabled = txtLuong.Enabled = txtNS.Enabled = txtmaCN.Enabled = false;
@@ -378,10 +383,11 @@ namespace DX_QLVT_DATHANG
             {
                 // txtMaNV.Focus();
 
-                MessageBox.Show("Nhân viên chua l?p phi?u", "", MessageBoxButtons.OK);
+                MessageBox.Show("Nhân viên chua lập phiếu", "", MessageBoxButtons.OK);
                 label1.Enabled = false;
                 gcNhanVien.Enabled = false;
                 groupControl1.Enabled = true;
+                txtMaNVMoi.Enabled = txtMANV.Enabled = false;
                 txtHo.Enabled = txtTen.Enabled = txtDiaChi.Enabled = txtLuong.Enabled = txtNS.Enabled = txtmaCN.Enabled = false;
                 kt = false;
             }
@@ -397,11 +403,16 @@ namespace DX_QLVT_DATHANG
 
         private void btnChuyen_Click(object sender, EventArgs e)
         {
-            string manv = txtMaNV.Text.Trim();
+            
+        }
+
+        private void btnChuyen_Click_1(object sender, EventArgs e)
+        {
+            string manv = txtMANV.Text.Trim();
             //string macnmoi = cmbCNMoi.Text.ToString();
             if (kt == true)
             {
-                int manvcu = Convert.ToInt16(txtMaNV.Text);
+                int manvcu = Convert.ToInt16(txtMANV.Text);
                 string hocu = txtHo.Text;
                 string tencu = txtTen.Text;
                 string diachicu = txtDiaChi.Text;
@@ -473,7 +484,7 @@ namespace DX_QLVT_DATHANG
                 try
                 {
 
-                    int mnv = Convert.ToInt16(txtMaNV.Text.Trim());
+                    int mnv = Convert.ToInt16(txtMANV.Text.Trim());
                     // String macnmoi = txtCNMoi.Text;
                     if (Program.KetNoi() == 0) return;
                     try

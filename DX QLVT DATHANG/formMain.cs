@@ -16,6 +16,10 @@ namespace DX_QLVT_DATHANG
         {
             InitializeComponent();
             loadStatus();
+           if (Program.mGroup=="User"){
+               ribbonPage3.Visible = false;
+               barButtonItem11.Enabled = false;
+           }
         }
 
         // kiem tra form da duoc mo chua
@@ -60,11 +64,11 @@ namespace DX_QLVT_DATHANG
 
         private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Form frm = this.CheckExists(typeof(formDDH));
+            Form frm = this.CheckExists(typeof(formDatHang));
             if (frm != null) frm.Activate();
             else
             {
-                formDDH f = new formDDH();
+                formDatHang f = new formDatHang();
                 f.MdiParent = this;
                 f.Show();
             }
@@ -164,7 +168,14 @@ namespace DX_QLVT_DATHANG
 
         private void barButtonItem11_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-           
+            Form frm = this.CheckExists(typeof(formTaoLogin));
+            if (frm != null) frm.Activate();
+            else
+            {
+                formTaoLogin f = new formTaoLogin();
+                f.MdiParent = this;
+                f.Show();
+            }
         }
 
         private void barButtonItem14_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

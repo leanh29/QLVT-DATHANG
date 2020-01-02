@@ -72,6 +72,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS.xsd</DependentUpon>
     </Compile>
+    <Compile Include="formDatHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formDatHang.Designer.cs">
+      <DependentUpon>formDatHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="formDDH.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,12 +108,6 @@
     <Compile Include="formNhanVien.Designer.cs">
       <DependentUpon>formNhanVien.cs</DependentUpon>
     </Compile>
-    <Compile Include="formPhieuNhap.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="formPhieuNhap.Designer.cs">
-      <DependentUpon>formPhieuNhap.cs</DependentUpon>
-    </Compile>
     <Compile Include="formPhieuNhap1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,12 +125,6 @@
     </Compile>
     <Compile Include="formrpNV.Designer.cs">
       <DependentUpon>formrpNV.cs</DependentUpon>
-    </Compile>
-    <Compile Include="formrpVATU.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="formrpVATU.Designer.cs">
-      <DependentUpon>formrpVATU.cs</DependentUpon>
     </Compile>
     <Compile Include="formTaoLogin.cs">
       <SubType>Form</SubType>
@@ -205,6 +199,9 @@
     <Compile Include="xrpVATTU.Designer.cs">
       <DependentUpon>xrpVATTU.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="formDatHang.resx">
+      <DependentUpon>formDatHang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formDDH.resx">
       <DependentUpon>formDDH.cs</DependentUpon>
     </EmbeddedResource>
@@ -220,9 +217,6 @@
     <EmbeddedResource Include="formNhanVien.resx">
       <DependentUpon>formNhanVien.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formPhieuNhap.resx">
-      <DependentUpon>formPhieuNhap.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="formPhieuNhap1.resx">
       <DependentUpon>formPhieuNhap1.cs</DependentUpon>
     </EmbeddedResource>
@@ -231,9 +225,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formrpNV.resx">
       <DependentUpon>formrpNV.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="formrpVATU.resx">
-      <DependentUpon>formrpVATU.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formTaoLogin.resx">
       <DependentUpon>formTaoLogin.cs</DependentUpon>

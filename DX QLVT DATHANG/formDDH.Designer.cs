@@ -46,7 +46,6 @@
             this.btnSua = new DevExpress.XtraBars.BarButtonItem();
             this.btnUndo = new DevExpress.XtraBars.BarButtonItem();
             this.btnReload = new DevExpress.XtraBars.BarButtonItem();
-            this.btnIn = new DevExpress.XtraBars.BarButtonItem();
             this.btnThoat = new DevExpress.XtraBars.BarButtonItem();
             this.bar5 = new DevExpress.XtraBars.Bar();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
@@ -56,6 +55,7 @@
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.btnsuanot = new DevExpress.XtraBars.BarButtonItem();
             this.ghi = new DevExpress.XtraBars.BarButtonItem();
+            this.btnIn = new DevExpress.XtraBars.BarButtonItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbChiNhanh = new System.Windows.Forms.ComboBox();
@@ -290,13 +290,6 @@
             this.btnReload.Name = "btnReload";
             this.btnReload.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnReload_ItemClick);
             // 
-            // btnIn
-            // 
-            this.btnIn.Caption = "In";
-            this.btnIn.Glyph = ((System.Drawing.Image)(resources.GetObject("btnIn.Glyph")));
-            this.btnIn.Id = 9;
-            this.btnIn.Name = "btnIn";
-            // 
             // btnThoat
             // 
             this.btnThoat.Caption = "Thoát";
@@ -365,6 +358,13 @@
             this.ghi.Id = 5;
             this.ghi.Name = "ghi";
             // 
+            // btnIn
+            // 
+            this.btnIn.Caption = "In";
+            this.btnIn.Glyph = ((System.Drawing.Image)(resources.GetObject("btnIn.Glyph")));
+            this.btnIn.Id = 9;
+            this.btnIn.Name = "btnIn";
+            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.label1);
@@ -372,7 +372,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 40);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(820, 63);
+            this.panel1.Size = new System.Drawing.Size(820, 57);
             this.panel1.TabIndex = 4;
             // 
             // label1
@@ -430,9 +430,9 @@
             this.panelControl2.Controls.Add(this.panelControl1);
             this.panelControl2.Controls.Add(this.gcDatHang);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl2.Location = new System.Drawing.Point(0, 103);
+            this.panelControl2.Location = new System.Drawing.Point(0, 97);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(820, 265);
+            this.panelControl2.Size = new System.Drawing.Size(820, 271);
             this.panelControl2.TabIndex = 8;
             // 
             // gvCTDDH
@@ -446,10 +446,10 @@
             this.txtDONGIA});
             this.gvCTDDH.DataSource = this.bdsCTDDH;
             this.gvCTDDH.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gvCTDDH.Location = new System.Drawing.Point(583, 94);
+            this.gvCTDDH.Location = new System.Drawing.Point(583, 151);
             this.gvCTDDH.Name = "gvCTDDH";
             this.gvCTDDH.RowTemplate.ContextMenuStrip = this.contextMenuStrip1;
-            this.gvCTDDH.Size = new System.Drawing.Size(235, 169);
+            this.gvCTDDH.Size = new System.Drawing.Size(235, 118);
             this.gvCTDDH.TabIndex = 8;
             this.gvCTDDH.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.cTDDHDataGridView_CellContentClick);
             // 
@@ -505,33 +505,33 @@
             this.xóaToolStripMenuItem,
             this.sửaVTToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(123, 92);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 114);
             // 
             // thêmToolStripMenuItem
             // 
             this.thêmToolStripMenuItem.Name = "thêmToolStripMenuItem";
-            this.thêmToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.thêmToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.thêmToolStripMenuItem.Text = "Thêm VT";
             this.thêmToolStripMenuItem.Click += new System.EventHandler(this.thêmToolStripMenuItem_Click);
             // 
             // ghiVTToolStripMenuItem
             // 
             this.ghiVTToolStripMenuItem.Name = "ghiVTToolStripMenuItem";
-            this.ghiVTToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.ghiVTToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.ghiVTToolStripMenuItem.Text = "Ghi VT";
             this.ghiVTToolStripMenuItem.Click += new System.EventHandler(this.ghiVTToolStripMenuItem_Click);
             // 
             // xóaToolStripMenuItem
             // 
             this.xóaToolStripMenuItem.Name = "xóaToolStripMenuItem";
-            this.xóaToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.xóaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.xóaToolStripMenuItem.Text = "Xóa VT";
             this.xóaToolStripMenuItem.Click += new System.EventHandler(this.xóaToolStripMenuItem_Click);
             // 
             // sửaVTToolStripMenuItem
             // 
             this.sửaVTToolStripMenuItem.Name = "sửaVTToolStripMenuItem";
-            this.sửaVTToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.sửaVTToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.sửaVTToolStripMenuItem.Text = "Sửa VT";
             this.sửaVTToolStripMenuItem.Click += new System.EventHandler(this.sửaVTToolStripMenuItem_Click);
             // 
@@ -552,9 +552,9 @@
             this.panelControl1.Controls.Add(this.txtNCC);
             this.panelControl1.Controls.Add(mANVLabel);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelControl1.Location = new System.Drawing.Point(2, 94);
+            this.panelControl1.Location = new System.Drawing.Point(2, 151);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(581, 169);
+            this.panelControl1.Size = new System.Drawing.Size(581, 118);
             this.panelControl1.TabIndex = 8;
             // 
             // txtMAKHO
@@ -656,7 +656,7 @@
             this.gcDatHang.MainView = this.gridView1;
             this.gcDatHang.MenuManager = this.barManager1;
             this.gcDatHang.Name = "gcDatHang";
-            this.gcDatHang.Size = new System.Drawing.Size(816, 92);
+            this.gcDatHang.Size = new System.Drawing.Size(816, 149);
             this.gcDatHang.TabIndex = 7;
             this.gcDatHang.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -676,6 +676,7 @@
             // 
             this.colMasoDDH.FieldName = "MasoDDH";
             this.colMasoDDH.Name = "colMasoDDH";
+            this.colMasoDDH.OptionsColumn.AllowEdit = false;
             this.colMasoDDH.Visible = true;
             this.colMasoDDH.VisibleIndex = 0;
             // 
@@ -683,6 +684,7 @@
             // 
             this.colNGAY.FieldName = "NGAY";
             this.colNGAY.Name = "colNGAY";
+            this.colNGAY.OptionsColumn.AllowEdit = false;
             this.colNGAY.Visible = true;
             this.colNGAY.VisibleIndex = 1;
             // 
@@ -690,6 +692,7 @@
             // 
             this.colNhaCC.FieldName = "NhaCC";
             this.colNhaCC.Name = "colNhaCC";
+            this.colNhaCC.OptionsColumn.AllowEdit = false;
             this.colNhaCC.Visible = true;
             this.colNhaCC.VisibleIndex = 2;
             // 
@@ -697,6 +700,7 @@
             // 
             this.colMANV.FieldName = "MANV";
             this.colMANV.Name = "colMANV";
+            this.colMANV.OptionsColumn.AllowEdit = false;
             this.colMANV.Visible = true;
             this.colMANV.VisibleIndex = 3;
             // 
@@ -704,6 +708,7 @@
             // 
             this.colMAKHO.FieldName = "MAKHO";
             this.colMAKHO.Name = "colMAKHO";
+            this.colMAKHO.OptionsColumn.AllowEdit = false;
             this.colMAKHO.Visible = true;
             this.colMAKHO.VisibleIndex = 4;
             // 

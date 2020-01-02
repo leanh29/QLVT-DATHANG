@@ -36,6 +36,8 @@
             System.Windows.Forms.Label nGAYSINHLabel;
             System.Windows.Forms.Label lUONGLabel;
             System.Windows.Forms.Label mACNLabel;
+            System.Windows.Forms.Label label4;
+            System.Windows.Forms.Label label5;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formNhanVien));
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
@@ -78,14 +80,13 @@
             this.colMACN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTrangThaiXoa = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.sP_DSCNBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtmaCN = new System.Windows.Forms.TextBox();
             this.txtLuong = new DevExpress.XtraEditors.TextEdit();
             this.txtNS = new System.Windows.Forms.DateTimePicker();
             this.txtDiaChi = new DevExpress.XtraEditors.TextEdit();
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
             this.txtHo = new DevExpress.XtraEditors.TextEdit();
-            this.txtMaNV = new DevExpress.XtraEditors.TextEdit();
+            this.sP_DSCNBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bdsPX = new System.Windows.Forms.BindingSource(this.components);
             this.phieuXuatTableAdapter = new DX_QLVT_DATHANG.DSTableAdapters.PhieuXuatTableAdapter();
             this.bdsPN = new System.Windows.Forms.BindingSource(this.components);
@@ -99,6 +100,7 @@
             this.btnChuyen = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.txtMaNVMoi = new System.Windows.Forms.TextBox();
+            this.txtMANV = new System.Windows.Forms.NumericUpDown();
             mANVLabel = new System.Windows.Forms.Label();
             hOLabel = new System.Windows.Forms.Label();
             tENLabel = new System.Windows.Forms.Label();
@@ -106,6 +108,8 @@
             nGAYSINHLabel = new System.Windows.Forms.Label();
             lUONGLabel = new System.Windows.Forms.Label();
             mACNLabel = new System.Windows.Forms.Label();
+            label4 = new System.Windows.Forms.Label();
+            label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.v_DS_PHANMANHBindingSource)).BeginInit();
@@ -116,17 +120,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sP_DSCNBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLuong.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDiaChi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMaNV.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sP_DSCNBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsPX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsPN)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsDH)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMANV)).BeginInit();
             this.SuspendLayout();
             // 
             // mANVLabel
@@ -191,6 +195,24 @@
             mACNLabel.Size = new System.Drawing.Size(40, 13);
             mACNLabel.TabIndex = 12;
             mACNLabel.Text = "MACN:";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new System.Drawing.Point(15, 64);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(58, 13);
+            label4.TabIndex = 24;
+            label4.Text = "MANV MOI";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new System.Drawing.Point(15, 98);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(59, 13);
+            label5.TabIndex = 25;
+            label5.Text = "MACN MOI";
             // 
             // barManager1
             // 
@@ -480,6 +502,7 @@
             // 
             this.colMANV.FieldName = "MANV";
             this.colMANV.Name = "colMANV";
+            this.colMANV.OptionsColumn.AllowEdit = false;
             this.colMANV.Visible = true;
             this.colMANV.VisibleIndex = 0;
             // 
@@ -487,6 +510,7 @@
             // 
             this.colHO.FieldName = "HO";
             this.colHO.Name = "colHO";
+            this.colHO.OptionsColumn.AllowEdit = false;
             this.colHO.Visible = true;
             this.colHO.VisibleIndex = 1;
             // 
@@ -494,6 +518,7 @@
             // 
             this.colTEN.FieldName = "TEN";
             this.colTEN.Name = "colTEN";
+            this.colTEN.OptionsColumn.AllowEdit = false;
             this.colTEN.Visible = true;
             this.colTEN.VisibleIndex = 2;
             // 
@@ -501,6 +526,7 @@
             // 
             this.colDIACHI.FieldName = "DIACHI";
             this.colDIACHI.Name = "colDIACHI";
+            this.colDIACHI.OptionsColumn.AllowEdit = false;
             this.colDIACHI.Visible = true;
             this.colDIACHI.VisibleIndex = 3;
             // 
@@ -508,6 +534,7 @@
             // 
             this.colNGAYSINH.FieldName = "NGAYSINH";
             this.colNGAYSINH.Name = "colNGAYSINH";
+            this.colNGAYSINH.OptionsColumn.AllowEdit = false;
             this.colNGAYSINH.Visible = true;
             this.colNGAYSINH.VisibleIndex = 4;
             // 
@@ -515,6 +542,7 @@
             // 
             this.colLUONG.FieldName = "LUONG";
             this.colLUONG.Name = "colLUONG";
+            this.colLUONG.OptionsColumn.AllowEdit = false;
             this.colLUONG.Visible = true;
             this.colLUONG.VisibleIndex = 5;
             // 
@@ -522,6 +550,7 @@
             // 
             this.colMACN.FieldName = "MACN";
             this.colMACN.Name = "colMACN";
+            this.colMACN.OptionsColumn.AllowEdit = false;
             this.colMACN.Visible = true;
             this.colMACN.VisibleIndex = 6;
             // 
@@ -529,11 +558,13 @@
             // 
             this.colTrangThaiXoa.FieldName = "TrangThaiXoa";
             this.colTrangThaiXoa.Name = "colTrangThaiXoa";
+            this.colTrangThaiXoa.OptionsColumn.AllowEdit = false;
             this.colTrangThaiXoa.Visible = true;
             this.colTrangThaiXoa.VisibleIndex = 7;
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.txtMANV);
             this.groupControl1.Controls.Add(mACNLabel);
             this.groupControl1.Controls.Add(this.txtmaCN);
             this.groupControl1.Controls.Add(lUONGLabel);
@@ -547,18 +578,12 @@
             this.groupControl1.Controls.Add(hOLabel);
             this.groupControl1.Controls.Add(this.txtHo);
             this.groupControl1.Controls.Add(mANVLabel);
-            this.groupControl1.Controls.Add(this.txtMaNV);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupControl1.Location = new System.Drawing.Point(0, 243);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(539, 245);
             this.groupControl1.TabIndex = 20;
             this.groupControl1.Paint += new System.Windows.Forms.PaintEventHandler(this.groupControl1_Paint);
-            // 
-            // sP_DSCNBindingSource
-            // 
-            this.sP_DSCNBindingSource.DataMember = "SP_DSCN";
-            this.sP_DSCNBindingSource.DataSource = this.DS;
             // 
             // txtmaCN
             // 
@@ -615,14 +640,10 @@
             this.txtHo.Size = new System.Drawing.Size(100, 20);
             this.txtHo.TabIndex = 3;
             // 
-            // txtMaNV
+            // sP_DSCNBindingSource
             // 
-            this.txtMaNV.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsNV, "MANV", true));
-            this.txtMaNV.Location = new System.Drawing.Point(87, 44);
-            this.txtMaNV.MenuManager = this.barManager1;
-            this.txtMaNV.Name = "txtMaNV";
-            this.txtMaNV.Size = new System.Drawing.Size(100, 20);
-            this.txtMaNV.TabIndex = 1;
+            this.sP_DSCNBindingSource.DataMember = "SP_DSCN";
+            this.sP_DSCNBindingSource.DataSource = this.DS;
             // 
             // bdsPX
             // 
@@ -657,6 +678,8 @@
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(label5);
+            this.panelControl1.Controls.Add(label4);
             this.panelControl1.Controls.Add(this.cmbCNMoi);
             this.panelControl1.Controls.Add(this.label3);
             this.panelControl1.Controls.Add(this.btnChuyen);
@@ -673,7 +696,7 @@
             this.cmbCNMoi.DataSource = this.sP_DSCNBindingSource;
             this.cmbCNMoi.DisplayMember = "MACN";
             this.cmbCNMoi.FormattingEnabled = true;
-            this.cmbCNMoi.Location = new System.Drawing.Point(67, 94);
+            this.cmbCNMoi.Location = new System.Drawing.Point(107, 94);
             this.cmbCNMoi.Name = "cmbCNMoi";
             this.cmbCNMoi.Size = new System.Drawing.Size(300, 21);
             this.cmbCNMoi.TabIndex = 22;
@@ -690,12 +713,13 @@
             // 
             // btnChuyen
             // 
-            this.btnChuyen.Location = new System.Drawing.Point(76, 132);
+            this.btnChuyen.Location = new System.Drawing.Point(116, 132);
             this.btnChuyen.Name = "btnChuyen";
             this.btnChuyen.Size = new System.Drawing.Size(75, 23);
             this.btnChuyen.TabIndex = 21;
             this.btnChuyen.Text = "Chuyển";
             this.btnChuyen.UseVisualStyleBackColor = true;
+            this.btnChuyen.Click += new System.EventHandler(this.btnChuyen_Click_1);
             // 
             // label2
             // 
@@ -708,10 +732,18 @@
             // 
             // txtMaNVMoi
             // 
-            this.txtMaNVMoi.Location = new System.Drawing.Point(67, 64);
+            this.txtMaNVMoi.Location = new System.Drawing.Point(107, 64);
             this.txtMaNVMoi.Name = "txtMaNVMoi";
             this.txtMaNVMoi.Size = new System.Drawing.Size(100, 21);
             this.txtMaNVMoi.TabIndex = 19;
+            // 
+            // txtMANV
+            // 
+            this.txtMANV.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bdsNV, "MANV", true));
+            this.txtMANV.Location = new System.Drawing.Point(87, 47);
+            this.txtMANV.Name = "txtMANV";
+            this.txtMANV.Size = new System.Drawing.Size(120, 21);
+            this.txtMANV.TabIndex = 14;
             // 
             // formNhanVien
             // 
@@ -741,18 +773,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sP_DSCNBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLuong.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDiaChi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMaNV.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sP_DSCNBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsPX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsPN)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsDH)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMANV)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -798,7 +830,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colMACN;
         private DevExpress.XtraGrid.Columns.GridColumn colTrangThaiXoa;
         private DevExpress.XtraEditors.GroupControl groupControl1;
-        private DevExpress.XtraEditors.TextEdit txtMaNV;
         private DevExpress.XtraEditors.TextEdit txtHo;
         private System.Windows.Forms.TextBox txtmaCN;
         private DevExpress.XtraEditors.TextEdit txtLuong;
@@ -822,5 +853,6 @@
         private System.Windows.Forms.Button btnChuyen;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtMaNVMoi;
+        private System.Windows.Forms.NumericUpDown txtMANV;
     }
 }

@@ -28,20 +28,16 @@ namespace DX_QLVT_DATHANG
             this.tableAdapterManager.UpdateAll(this.DS);
 
         }
-
+        public event
+            System.Windows.Forms.DataGridViewDataErrorEventHandler
+            DataError;
         private void formPhieuNhap1_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'DS.Vattu' table. You can move, or remove it, as needed.
-            this.vattuTableAdapter.Fill(this.DS.Vattu);
-            // TODO: This line of code loads data into the 'DS.DSNhanVien' table. You can move, or remove it, as needed.
             
-            // TODO: This line of code loads data into the 'DS.DatHang' table. You can move, or remove it, as needed.
-           
             DS.EnforceConstraints = false;
-            // TODO: This line of code loads data into the 'dS.CTPN' table. You can move, or remove it, as needed.
-            //this.khoTableAdapter.Connection.ConnectionString = Program.connstr;
-            //this.khoTableAdapter.Fill(this.DS.Kho);
 
+            this.phieuNhapTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.phieuNhapTableAdapter.Fill(this.DS.PhieuNhap);
             this.dSNhanVienTableAdapter.Connection.ConnectionString = Program.connstr;
             this.dSNhanVienTableAdapter.Fill(this.DS.DSNhanVien);
 
@@ -58,12 +54,13 @@ namespace DX_QLVT_DATHANG
             this.cTPNTableAdapter.Connection.ConnectionString = Program.connstr;
             this.cTPNTableAdapter.Fill(this.DS.CTPN);
             // TODO: This line of code loads data into the 'dS.PhieuNhap' table. You can move, or remove it, as needed.
-
-            this.phieuNhapTableAdapter.Connection.ConnectionString = Program.connstr;
-            this.phieuNhapTableAdapter.Fill(this.DS.PhieuNhap);
-
-            this.vattuTableAdapter.Connection.ConnectionString = Program.connstr;
-            this.vattuTableAdapter.Fill(this.DS.Vattu);
+            try
+            {
+                this.sP_VT_DDHTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.sP_VT_DDHTableAdapter.Fill(this.DS.SP_VT_DDH, cmbMADDH.Text);
+            }
+            catch (Exception er) { }
+            
             cmbChiNhanh.DataSource = Program.bds_dspm;
             cmbChiNhanh.DisplayMember = "TENCN";
             cmbChiNhanh.ValueMember = "TENSERVER";
@@ -73,6 +70,7 @@ namespace DX_QLVT_DATHANG
             {
                 cmbChiNhanh.Enabled = true;
                 btnThem.Enabled = btnXoa.Enabled = btnUndo.Enabled = btnGhi.Enabled = btnSua.Enabled = false;
+                gvCTPN.Enabled = false;
             }
 
             else cmbChiNhanh.Enabled = false;
@@ -114,15 +112,12 @@ namespace DX_QLVT_DATHANG
             else
             {
                 DS.EnforceConstraints = false;
-                // TODO: This line of code loads data into the 'DS.Kho' table. You can move, or remove it, as needed.
-
-                // TODO: This line of code loads data into the 'DS.DSNhanVien' table. You can move, or remove it, as needed.
-                //this.khoTableAdapter.Connection.ConnectionString = Program.connstr;
-                //this.khoTableAdapter.Fill(this.DS.Kho);
+                this.phieuNhapTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.phieuNhapTableAdapter.Fill(this.DS.PhieuNhap);
 
                 this.dSNhanVienTableAdapter.Connection.ConnectionString = Program.connstr;
                 this.dSNhanVienTableAdapter.Fill(this.DS.DSNhanVien);
-                // TODO: This line of code loads data into the 'DS.DatHang' table. You can move, or remove it, as needed.
+
                 this.datHangTableAdapter.Connection.ConnectionString = Program.connstr;
                 this.datHangTableAdapter.Fill(this.DS.DatHang);
 
@@ -131,9 +126,12 @@ namespace DX_QLVT_DATHANG
                 this.cTPNTableAdapter.Fill(this.DS.CTPN);
                 // TODO: This line of code loads data into the 'dS.PhieuNhap' table. You can move, or remove it, as needed.
 
-                this.phieuNhapTableAdapter.Connection.ConnectionString = Program.connstr;
-                this.phieuNhapTableAdapter.Fill(this.DS.PhieuNhap);
-
+                try
+                {
+                    this.sP_VT_DDHTableAdapter.Connection.ConnectionString = Program.connstr;
+                    this.sP_VT_DDHTableAdapter.Fill(this.DS.SP_VT_DDH, cmbMADDH.Text);
+                }
+                catch (Exception er) { }
             }
         }
 
@@ -153,19 +151,69 @@ namespace DX_QLVT_DATHANG
 
         private void btnGhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            try
+            if (txtMAPN.Text.Trim() == "")
             {
-                bdsPN.EndEdit();
-                bdsPN.ResetCurrentItem();
-                this.phieuNhapTableAdapter.Connection.ConnectionString = Program.connstr;
-                this.phieuNhapTableAdapter.Update(this.DS.PhieuNhap);
-                MessageBox.Show("Ghi đơn đặt hàng thành công");
+                MessageBox.Show("Mã phiếu nhập không được để trống ");
+                txtMAPN.Focus();
                 return;
             }
-            catch (Exception ex)
+            if (flag == true)
             {
-                MessageBox.Show("Lỗi ghi đơn đặt hàng" + ex.Message, "", MessageBoxButtons.OK);
+                try
+                {
+                    String str = "dbo.SP_CHECKTRUNGPN";
+                    Program.sqlcmd = Program.conn.CreateCommand();
+                    Program.sqlcmd.CommandType = CommandType.StoredProcedure;
+                    Program.sqlcmd.CommandText = str;
+                    Program.sqlcmd.Parameters.Add("@X", SqlDbType.NChar).Value = txtMAPN.Text;
+                    Program.sqlcmd.Parameters.Add("@Ret", SqlDbType.NChar).Direction = ParameterDirection.ReturnValue;
+                    Program.sqlcmd.ExecuteNonQuery();
+                    String ret = Program.sqlcmd.Parameters["@RET"].Value.ToString();
+                    if (ret == "1")
+                    {
+                        MessageBox.Show("Mã đơn đặt hàng bị trùng");
+                        return;
+                    }
+                    else
+                    {
+                        try
+                        {
+                            bdsPN.EndEdit();
+                            bdsPN.ResetCurrentItem();
+                            this.datHangTableAdapter.Connection.ConnectionString = Program.connstr;
+                            this.datHangTableAdapter.Update(this.DS.DatHang);
+                            MessageBox.Show("Ghi đơn đặt hàng thành công");
+                            return;
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Lỗi ghi đơn đặt hàng" + ex.Message, "", MessageBoxButtons.OK);
+                            return;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi ghi đơn đặt hàng" + ex.Message, "", MessageBoxButtons.OK);
+                }
             }
+            else
+            {
+                try
+                {
+                    bdsPN.EndEdit();
+                    bdsPN.ResetCurrentItem();
+                    this.phieuNhapTableAdapter.Connection.ConnectionString = Program.connstr;
+                    this.phieuNhapTableAdapter.Update(this.DS.PhieuNhap);
+                    MessageBox.Show("Ghi phiếu nhập thành công");
+                    return;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi ghi đơn đặt hàng" + ex.Message, "", MessageBoxButtons.OK);
+                }
+            }
+            
         }
 
         private void cmbHOTEN_SelectedIndexChanged(object sender, EventArgs e)
@@ -179,11 +227,6 @@ namespace DX_QLVT_DATHANG
 
         private void cmbKHO_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try
-            {
-                txtMAKHO.Text = cmbKHO.SelectedValue.ToString();
-            }
-            catch (Exception) { }
         }
 
         private void thêmToolStripMenuItem_Click(object sender, EventArgs e)
@@ -217,34 +260,14 @@ namespace DX_QLVT_DATHANG
                     return;
                 }
             }
-            try
-            {
-                String str = "dbo.SP_DS_VatTuTheoDDH";
-                Program.sqlcmd = Program.conn.CreateCommand();
-                Program.sqlcmd.CommandType = CommandType.StoredProcedure;
-                Program.sqlcmd.CommandText = str;
-                Program.sqlcmd.Parameters.Add("@maddh", SqlDbType.Char).Value = cmbMADDH.Text;
-                Program.sqlcmd.Parameters.Add("@vt", SqlDbType.Char).Value = gvCTPN.Rows[vitri].Cells[1].Value.ToString();
-                Program.sqlcmd.Parameters.Add("@Ret", SqlDbType.Int).Direction = ParameterDirection.ReturnValue;
-                Program.sqlcmd.ExecuteNonQuery();
-                String ret = Program.sqlcmd.Parameters["@RET"].Value.ToString();
-                if (ret == "1")
-                {
-                    MessageBox.Show("Vật tư chưa được đặt hàng trước");
-                    return;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("lỗi kiểm tra vật tư " + ex.Message);
-            }
+           
             try
             {
                 bdsCTPN.EndEdit();
                 bdsCTPN.ResetCurrentItem();
                 this.cTPNTableAdapter.Connection.ConnectionString = Program.connstr;
                 this.cTPNTableAdapter.Update(this.DS.CTPN);
-                MessageBox.Show("Ghi vật tư vào đơn đặt hàng thành công");
+                MessageBox.Show("Ghi vật tư vào phiếu nhập thành công");
                 //string s = cmbMAVT.
                 return;
             }
@@ -253,7 +276,7 @@ namespace DX_QLVT_DATHANG
 
                 if (ee.Message.Contains("duplicate"))
                 {
-                    MessageBox.Show("Vật tư đã tồn tại trong đơn đặt hàng");
+                    MessageBox.Show("Vật tư đã tồn tại trong phiếu nhập");
                     return;
                 }
                 MessageBox.Show("lỗi ghi vât tư" + ee.Message);
@@ -265,6 +288,72 @@ namespace DX_QLVT_DATHANG
             vitri = bdsCTPN.Position;
             gvCTPN.Rows[vitri].ReadOnly = false;
             flag1 = false;
+        }
+
+        private void fillToolStripButton_Click(object sender, EventArgs e)
+        {
+            //try
+            //{
+            //    this.sP_VT_DDHTableAdapter.Fill(this.DS.SP_VT_DDH, txtDDH_VT.Text);
+            //}
+            //catch (System.Exception ex)
+            //{
+            //    System.Windows.Forms.MessageBox.Show(ex.Message);
+            //}
+
+        }
+
+        private void maddhToolStripTextBox_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gvCTPN_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void ee(object sender, DataGridViewDataErrorEventArgs e)
+        {
+
+        }
+
+        private void btnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (bdsCTPN.Count > 0)
+            {
+                MessageBox.Show("Phiếu nhập đã có chi tiết, không thể xóa");
+                return;
+            }
+            else
+            {
+                if (MessageBox.Show("Bạn có thật sự muốn xóa phiếu nhập này? ", "Xác nhận", MessageBoxButtons.YesNoCancel) == DialogResult.Yes)
+                {
+                    try
+                    {
+                        bdsCTPN.RemoveCurrent();
+                        this.phieuNhapTableAdapter.Update(this.DS.PhieuNhap);
+                        MessageBox.Show("Xóa thành công");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi xóa phiếu nhập" + ex.Message, "", MessageBoxButtons.OK);
+                    }
+                }
+            }
+        }
+
+        private void xóaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bdsCTPN.RemoveCurrent();
+            this.cTPNTableAdapter.Update(this.DS.CTPN);
+            MessageBox.Show("Xóa thành công");
+        }
+
+        private void btnSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            flag = false;
+            panelControl1.Enabled = true;
         }
     }
 }

@@ -37,6 +37,7 @@
             this.tableAdapterManager = new DX_QLVT_DATHANG.DSTableAdapters.TableAdapterManager();
             this.sP_RP_NVBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sP_RP_NVTableAdapter = new DX_QLVT_DATHANG.DSTableAdapters.SP_RP_NVTableAdapter();
+            this.btnThoat = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sP_RP_NVBindingSource)).BeginInit();
@@ -44,6 +45,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnThoat);
             this.panel1.Controls.Add(this.btnPre);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.cmbChiNhanh);
@@ -55,7 +57,7 @@
             // 
             // btnPre
             // 
-            this.btnPre.Location = new System.Drawing.Point(444, 9);
+            this.btnPre.Location = new System.Drawing.Point(414, 10);
             this.btnPre.Name = "btnPre";
             this.btnPre.Size = new System.Drawing.Size(75, 23);
             this.btnPre.TabIndex = 2;
@@ -111,6 +113,16 @@
             // 
             this.sP_RP_NVTableAdapter.ClearBeforeFill = true;
             // 
+            // btnThoat
+            // 
+            this.btnThoat.Location = new System.Drawing.Point(529, 10);
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Size = new System.Drawing.Size(75, 23);
+            this.btnThoat.TabIndex = 3;
+            this.btnThoat.Text = "Thoát";
+            this.btnThoat.UseVisualStyleBackColor = true;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
+            // 
             // formrpNV
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -138,6 +150,7 @@
         private System.Windows.Forms.Button btnPre;
         private System.Windows.Forms.BindingSource sP_RP_NVBindingSource;
         private DSTableAdapters.SP_RP_NVTableAdapter sP_RP_NVTableAdapter;
+        private System.Windows.Forms.Button btnThoat;
         //private DSTableAdapters.SP_RP_NHANVIENTableAdapter sP_RP_NHANVIENTableAdapter;
     }
 }

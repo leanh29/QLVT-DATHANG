@@ -64,7 +64,7 @@
             this.xrPageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
             this.xrPageInfo2 = new DevExpress.XtraReports.UI.XRPageInfo();
             this.reportHeaderBand1 = new DevExpress.XtraReports.UI.ReportHeaderBand();
-            this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
+            this.lblTieuDe = new DevExpress.XtraReports.UI.XRLabel();
             this.Title = new DevExpress.XtraReports.UI.XRControlStyle();
             this.FieldCaption = new DevExpress.XtraReports.UI.XRControlStyle();
             this.PageInfo = new DevExpress.XtraReports.UI.XRControlStyle();
@@ -391,20 +391,20 @@
             // reportHeaderBand1
             // 
             this.reportHeaderBand1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.xrLabel1});
+            this.lblTieuDe});
             this.reportHeaderBand1.Dpi = 100F;
             this.reportHeaderBand1.HeightF = 51F;
             this.reportHeaderBand1.Name = "reportHeaderBand1";
             // 
-            // xrLabel1
+            // lblTieuDe
             // 
-            this.xrLabel1.Dpi = 100F;
-            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(6F, 6F);
-            this.xrLabel1.Name = "xrLabel1";
-            this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel1.SizeF = new System.Drawing.SizeF(638F, 33F);
-            this.xrLabel1.StyleName = "Title";
-            this.xrLabel1.Text = "DANH SÁCH NHÂN VIÊN THUỘC ...";
+            this.lblTieuDe.Dpi = 100F;
+            this.lblTieuDe.LocationFloat = new DevExpress.Utils.PointFloat(6F, 6F);
+            this.lblTieuDe.Name = "lblTieuDe";
+            this.lblTieuDe.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lblTieuDe.SizeF = new System.Drawing.SizeF(638F, 33F);
+            this.lblTieuDe.StyleName = "Title";
+            this.lblTieuDe.Text = "DANH SÁCH NHÂN VIÊN THUỘC ...";
             // 
             // Title
             // 
@@ -483,6 +483,7 @@
             this.DataAdapter = this.sP_RP_NVTableAdapter2;
             this.DataMember = "SP_RP_NV";
             this.DataSource = this.ds1;
+            this.Margins = new System.Drawing.Printing.Margins(100, 99, 100, 100);
             this.StyleSheet.AddRange(new DevExpress.XtraReports.UI.XRControlStyle[] {
             this.Title,
             this.FieldCaption,
@@ -532,7 +533,6 @@
         private DevExpress.XtraReports.UI.XRPageInfo xrPageInfo1;
         private DevExpress.XtraReports.UI.XRPageInfo xrPageInfo2;
         private DevExpress.XtraReports.UI.ReportHeaderBand reportHeaderBand1;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel1;
         private DevExpress.XtraReports.UI.XRControlStyle Title;
         private DevExpress.XtraReports.UI.XRControlStyle FieldCaption;
         private DevExpress.XtraReports.UI.XRControlStyle PageInfo;
@@ -542,5 +542,6 @@
         private DS ds2;
         private DSTableAdapters.SP_RP_NVTableAdapter sP_RP_NVTableAdapter1;
         private DSTableAdapters.SP_RP_NVTableAdapter sP_RP_NVTableAdapter2;
+        public DevExpress.XtraReports.UI.XRLabel lblTieuDe;
     }
 }

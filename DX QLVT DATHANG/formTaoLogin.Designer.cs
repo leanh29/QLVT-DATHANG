@@ -122,6 +122,7 @@
             this.btnThoat.TabIndex = 9;
             this.btnThoat.Text = "THOÁT";
             this.btnThoat.UseVisualStyleBackColor = true;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // formTaoLogin
             // 

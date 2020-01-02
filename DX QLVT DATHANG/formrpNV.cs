@@ -61,15 +61,24 @@ namespace DX_QLVT_DATHANG
             cmbChiNhanh.DisplayMember = "TENCN";
             cmbChiNhanh.ValueMember = "TENSERVER";
             cmbChiNhanh.SelectedIndex = Program.mChinhanh;
+            if (Program.mGroup == "ChiNhanh")
+            {
+                cmbChiNhanh.Enabled = false;
+            }
         }
 
         private void btnPre_Click(object sender, EventArgs e)
         {
             xrpNV rpt = new xrpNV();
-            
+            rpt.lblTieuDe.Text = "DANH SÁCH NHÂN VIÊN THUỘC " + cmbChiNhanh.Text;
             ReportPrintTool print = new ReportPrintTool(rpt);
 
             print.ShowPreviewDialog();
+        }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

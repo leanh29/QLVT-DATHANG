@@ -28,5 +28,10 @@ namespace DX_QLVT_DATHANG
 
             print.ShowPreviewDialog();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

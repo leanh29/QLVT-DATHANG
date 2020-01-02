@@ -63,28 +63,46 @@ namespace DX_QLVT_DATHANG
             {
                 if (Program.KetNoi() == 0) return;
 
-                string lenh = "EXEC SP_TAOLOGIN1 "
-                    + "'" + txtLogName.Text + "',"
-                    + "'" + txtPass.Text + "',"
-                    + "'" + txtUserName.Text + "',"
-                    + "'" + txtRole.Text + "'";
+                //string lenh = "EXEC SP_TAOLOGIN1 "
+                //    + "'" + txtLogName.Text + "',"
+                //    + "'" + txtPass.Text + "',"
+                //    + "'" + txtUserName.Text + "',"
+                //    + "'" + txtRole.Text + "'";
                 
                
-                SqlCommand sqlcmd1 = new SqlCommand(lenh, Program.conn);
-                Program.dataReader = sqlcmd1.ExecuteReader();
-                if (Program.dataReader.Read())
+                //SqlCommand sqlcmd1 = new SqlCommand(lenh, Program.conn);
+                //Program.dataReader = sqlcmd1.ExecuteReader();
+                //if (Program.dataReader.Read())
+                //{
+                //    string check = Program.dataReader.GetString(0);
+                //    if (check == "1")
+                //    {
+                //        MessageBox.Show("Mời kiểm tra lại!");
+                //        txtLogName.Focus();
+                //        txtPass.Focus();
+                //        txtUserName.Focus();
+                //        txtRole.Focus();
+                //        Program.dataReader.Close();
+                //        return;
+                //    }
+                //}
+
+
+                String str = "dbo.SP_TAOLOGIN1";
+                Program.sqlcmd = Program.conn.CreateCommand();
+                Program.sqlcmd.CommandType = CommandType.StoredProcedure;
+                Program.sqlcmd.CommandText = str;
+                Program.sqlcmd.Parameters.Add("@LGNAME", SqlDbType.VarChar).Value = txtLogName.Text;
+                Program.sqlcmd.Parameters.Add("@PASS", SqlDbType.VarChar).Value = txtPass.Text;
+                Program.sqlcmd.Parameters.Add("@USERNAME", SqlDbType.VarChar).Value = txtUserName.Text;
+                Program.sqlcmd.Parameters.Add("@ROLE", SqlDbType.VarChar).Value = txtRole.Text;
+                Program.sqlcmd.Parameters.Add("@Ret", SqlDbType.Int).Direction = ParameterDirection.ReturnValue;
+                Program.sqlcmd.ExecuteNonQuery();
+                String ret = Program.sqlcmd.Parameters["@RET"].Value.ToString();
+                if (ret == "1")
                 {
-                    string check = Program.dataReader.GetString(0);
-                    if (check == "1")
-                    {
-                        MessageBox.Show("Mời kiểm tra lại!");
-                        txtLogName.Focus();
-                        txtPass.Focus();
-                        txtUserName.Focus();
-                        txtRole.Focus();
-                        Program.dataReader.Close();
-                        return;
-                    }
+                    MessageBox.Show("Login name hoặc username bị trùng");
+                    return;
                 }
                 else
                 {
@@ -110,6 +128,11 @@ namespace DX_QLVT_DATHANG
         {
 
             txtRole.Text = Program.mGroup;
+        }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

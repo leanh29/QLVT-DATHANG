@@ -34,12 +34,16 @@ namespace DX_QLVT_DATHANG
 
         private void btnPre_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(nhom + loai + thangdau + thangcuoi);
             xrpChiTietPhieuTrongKhoangTheoLoai rpt = new xrpChiTietPhieuTrongKhoangTheoLoai(cmbLoaiPhieu.Text.Substring(0, 1), dtpFrom.Value.Month, dtpTo.Value.Month, Program.mGroup);
-
+            rpt.lblTieuDe.Text = "BẢNG KÊ CHI TIẾT SỐ LƯỢNG - TRỊ GIÁ HÀNG " + cmbLoaiPhieu.Text + " TỪ " + dtpFrom.Value + " ĐẾN " + dtpTo.Value;
             ReportPrintTool print = new ReportPrintTool(rpt);
 
             print.ShowPreviewDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
