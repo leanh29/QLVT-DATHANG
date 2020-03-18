@@ -351,6 +351,7 @@
             // cmbChiNhanh
             // 
             this.cmbChiNhanh.DisplayMember = "TENCN";
+            this.cmbChiNhanh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbChiNhanh.FormattingEnabled = true;
             this.cmbChiNhanh.Location = new System.Drawing.Point(113, 19);
             this.cmbChiNhanh.Name = "cmbChiNhanh";
@@ -586,6 +587,7 @@
             // nGAYDateTimePicker
             // 
             this.nGAYDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bdsPN, "NGAY", true));
+            this.nGAYDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.nGAYDateTimePicker.Location = new System.Drawing.Point(110, 48);
             this.nGAYDateTimePicker.Name = "nGAYDateTimePicker";
             this.nGAYDateTimePicker.Size = new System.Drawing.Size(200, 21);
@@ -604,6 +606,7 @@
             this.cmbMADDH.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bdsPN, "MasoDDH", true));
             this.cmbMADDH.DataSource = this.bdsDH;
             this.cmbMADDH.DisplayMember = "MasoDDH";
+            this.cmbMADDH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMADDH.FormattingEnabled = true;
             this.cmbMADDH.Location = new System.Drawing.Point(111, 75);
             this.cmbMADDH.Name = "cmbMADDH";
@@ -616,6 +619,7 @@
             this.cmbHOTEN.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bdsPN, "MANV", true));
             this.cmbHOTEN.DataSource = this.bdsDSNV;
             this.cmbHOTEN.DisplayMember = "HOTEN";
+            this.cmbHOTEN.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbHOTEN.FormattingEnabled = true;
             this.cmbHOTEN.Location = new System.Drawing.Point(110, 109);
             this.cmbHOTEN.Name = "cmbHOTEN";
@@ -626,6 +630,7 @@
             // 
             // txtMANV
             // 
+            this.txtMANV.Enabled = false;
             this.txtMANV.Location = new System.Drawing.Point(317, 108);
             this.txtMANV.Name = "txtMANV";
             this.txtMANV.Size = new System.Drawing.Size(100, 21);
@@ -636,6 +641,8 @@
             this.cmbKHO.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bdsPN, "MAKHO", true));
             this.cmbKHO.DataSource = this.bdsDH;
             this.cmbKHO.DisplayMember = "MAKHO";
+            this.cmbKHO.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbKHO.Enabled = false;
             this.cmbKHO.FormattingEnabled = true;
             this.cmbKHO.Location = new System.Drawing.Point(110, 149);
             this.cmbKHO.Name = "cmbKHO";

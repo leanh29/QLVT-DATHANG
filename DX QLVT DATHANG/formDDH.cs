@@ -332,8 +332,7 @@ namespace DX_QLVT_DATHANG
 
         private void ghiVTToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (flag1 == true)
-            {
+            
                 vitri = bdsCTDDH.Position;
                 if (gvCTDDH.Rows[vitri].Cells[1].Value == DBNull.Value)
                 {
@@ -345,9 +344,9 @@ namespace DX_QLVT_DATHANG
                     MessageBox.Show("Số lượng vật tư không được để trống");
                     return;
                 }
-            }
+            
              try
-            {
+             {
                 bdsCTDDH.EndEdit();
                 bdsCTDDH.ResetCurrentItem();
                 this.cTDDHTableAdapter.Connection.ConnectionString = Program.connstr;

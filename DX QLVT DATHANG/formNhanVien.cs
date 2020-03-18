@@ -49,7 +49,7 @@ namespace DX_QLVT_DATHANG
             cmbChiNhanh.DisplayMember = "TENCN";
             cmbChiNhanh.ValueMember = "TENSERVER";
             cmbChiNhanh.SelectedIndex = Program.mChinhanh;
-
+            cmbChiNhanh.Enabled = false;
             if (Program.mGroup == "CongTy")
             {
                 cmbChiNhanh.Enabled = true;
@@ -59,7 +59,7 @@ namespace DX_QLVT_DATHANG
             {
                 btnChuyenCN.Enabled = false;
             }
-            cmbChiNhanh.Enabled = false;
+            
             groupControl1.Enabled = false;
             panelControl1.Enabled = false;
         }
@@ -234,6 +234,7 @@ namespace DX_QLVT_DATHANG
                 txtDiaChi.Focus();
                 return;
             }
+
             if (txtLuong.Text.Trim() == "")
             {
 
@@ -274,6 +275,7 @@ namespace DX_QLVT_DATHANG
                     {
                         try
                         {
+                            txtTTX.Text = "0";
                             bdsNV.EndEdit();
                             //dong bo du lieu giua 2 khu vuc
                             bdsNV.ResetCurrentItem();
@@ -369,28 +371,58 @@ namespace DX_QLVT_DATHANG
         private void btnChuyenCN_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             panelControl1.Enabled = true;
-            if (bdsDH.Count > 0 || bdsPN.Count > 0 || bdsPX.Count > 0)
+            if(txtTTX.Text.Trim() == "1")
             {
-                // Nhân viên này dã l?p phi?u
-                MessageBox.Show("Nhân viên dã lập phiếu", "", MessageBoxButtons.OK);
-                txtMANV.Enabled = false;
-                gcNhanVien.Enabled = false;
-                groupControl1.Enabled = true;
-                txtHo.Enabled = txtTen.Enabled = txtDiaChi.Enabled = txtLuong.Enabled = txtNS.Enabled = txtmaCN.Enabled = false;
-                kt = true;
+                MessageBox.Show("Nhân viên đã chuyển chi nhánh", "", MessageBoxButtons.OK);
+                return;
             }
             else
             {
-                // txtMaNV.Focus();
+                if (bdsDH.Count > 0 || bdsPN.Count > 0 || bdsPX.Count > 0)
+                {
+                    // Nhân viên này dã l?p phi?u
+                    MessageBox.Show("Nhân viên dã lập phiếu", "", MessageBoxButtons.OK);
+                    txtMANV.Enabled = false;
+                    gcNhanVien.Enabled = false;
+                    groupControl1.Enabled = true;
+                    txtHo.Enabled = txtTen.Enabled = txtDiaChi.Enabled = txtLuong.Enabled = txtNS.Enabled = txtmaCN.Enabled = false;
+                    kt = true;
+                }
+                else
+                {
+                    // txtMaNV.Focus();
 
-                MessageBox.Show("Nhân viên chua lập phiếu", "", MessageBoxButtons.OK);
-                label1.Enabled = false;
-                gcNhanVien.Enabled = false;
-                groupControl1.Enabled = true;
-                txtMaNVMoi.Enabled = txtMANV.Enabled = false;
-                txtHo.Enabled = txtTen.Enabled = txtDiaChi.Enabled = txtLuong.Enabled = txtNS.Enabled = txtmaCN.Enabled = false;
-                kt = false;
+                    MessageBox.Show("Nhân viên chua lập phiếu", "", MessageBoxButtons.OK);
+                    label1.Enabled = false;
+                    gcNhanVien.Enabled = false;
+                    groupControl1.Enabled = true;
+                    txtMaNVMoi.Enabled = txtMANV.Enabled = false;
+                    txtHo.Enabled = txtTen.Enabled = txtDiaChi.Enabled = txtLuong.Enabled = txtNS.Enabled = txtmaCN.Enabled = false;
+                    kt = false;
+                }
             }
+            //if (bdsDH.Count > 0 || bdsPN.Count > 0 || bdsPX.Count > 0)
+            //{
+            //    // Nhân viên này dã l?p phi?u
+            //    MessageBox.Show("Nhân viên dã lập phiếu", "", MessageBoxButtons.OK);
+            //    txtMANV.Enabled = false;
+            //    gcNhanVien.Enabled = false;
+            //    groupControl1.Enabled = true;
+            //    txtHo.Enabled = txtTen.Enabled = txtDiaChi.Enabled = txtLuong.Enabled = txtNS.Enabled = txtmaCN.Enabled = false;
+            //    kt = true;
+            //}
+            //else
+            //{
+            //    // txtMaNV.Focus();
+
+            //    MessageBox.Show("Nhân viên chua lập phiếu", "", MessageBoxButtons.OK);
+            //    label1.Enabled = false;
+            //    gcNhanVien.Enabled = false;
+            //    groupControl1.Enabled = true;
+            //    txtMaNVMoi.Enabled = txtMANV.Enabled = false;
+            //    txtHo.Enabled = txtTen.Enabled = txtDiaChi.Enabled = txtLuong.Enabled = txtNS.Enabled = txtmaCN.Enabled = false;
+            //    kt = false;
+            //}
 
         }
         private void XoaNhanVienCoTKLogin(string manv)

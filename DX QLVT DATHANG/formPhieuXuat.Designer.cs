@@ -80,7 +80,7 @@
             this.bdsDSNV = new System.Windows.Forms.BindingSource(this.components);
             this.txtMAPX = new System.Windows.Forms.TextBox();
             this.nGAYDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.cmbHOTENKH = new System.Windows.Forms.TextBox();
+            this.txtHOTENKH = new System.Windows.Forms.TextBox();
             this.bdsCTPX = new System.Windows.Forms.BindingSource(this.components);
             this.gvCTPX = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -267,6 +267,7 @@
             this.btnXoa.Glyph = ((System.Drawing.Image)(resources.GetObject("btnXoa.Glyph")));
             this.btnXoa.Id = 6;
             this.btnXoa.Name = "btnXoa";
+            this.btnXoa.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnXoa_ItemClick);
             // 
             // btnSua
             // 
@@ -379,6 +380,7 @@
             // cmbChiNhanh
             // 
             this.cmbChiNhanh.DisplayMember = "TENCN";
+            this.cmbChiNhanh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbChiNhanh.FormattingEnabled = true;
             this.cmbChiNhanh.Location = new System.Drawing.Point(113, 19);
             this.cmbChiNhanh.Name = "cmbChiNhanh";
@@ -499,7 +501,7 @@
             this.panelControl1.Controls.Add(nGAYLabel);
             this.panelControl1.Controls.Add(this.nGAYDateTimePicker);
             this.panelControl1.Controls.Add(hOTENKHLabel);
-            this.panelControl1.Controls.Add(this.cmbHOTENKH);
+            this.panelControl1.Controls.Add(this.txtHOTENKH);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelControl1.Location = new System.Drawing.Point(0, 282);
             this.panelControl1.Name = "panelControl1";
@@ -509,6 +511,7 @@
             // txtMAKHO
             // 
             this.txtMAKHO.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsPX, "MAKHO", true));
+            this.txtMAKHO.Enabled = false;
             this.txtMAKHO.Location = new System.Drawing.Point(356, 149);
             this.txtMAKHO.Name = "txtMAKHO";
             this.txtMAKHO.Size = new System.Drawing.Size(100, 21);
@@ -520,6 +523,7 @@
             this.cmbKHO.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bdsPX, "MAKHO", true));
             this.cmbKHO.DataSource = this.bdsKHO;
             this.cmbKHO.DisplayMember = "TENKHO";
+            this.cmbKHO.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbKHO.FormattingEnabled = true;
             this.cmbKHO.Location = new System.Drawing.Point(127, 152);
             this.cmbKHO.Name = "cmbKHO";
@@ -536,6 +540,7 @@
             // txtMANV
             // 
             this.txtMANV.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsPX, "MANV", true));
+            this.txtMANV.Enabled = false;
             this.txtMANV.Location = new System.Drawing.Point(356, 101);
             this.txtMANV.Name = "txtMANV";
             this.txtMANV.Size = new System.Drawing.Size(100, 21);
@@ -547,6 +552,7 @@
             this.cmbHOTEN.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bdsPX, "MANV", true));
             this.cmbHOTEN.DataSource = this.bdsDSNV;
             this.cmbHOTEN.DisplayMember = "HOTEN";
+            this.cmbHOTEN.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbHOTEN.FormattingEnabled = true;
             this.cmbHOTEN.Location = new System.Drawing.Point(111, 101);
             this.cmbHOTEN.Name = "cmbHOTEN";
@@ -571,18 +577,19 @@
             // nGAYDateTimePicker
             // 
             this.nGAYDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bdsPX, "NGAY", true));
+            this.nGAYDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.nGAYDateTimePicker.Location = new System.Drawing.Point(111, 38);
             this.nGAYDateTimePicker.Name = "nGAYDateTimePicker";
             this.nGAYDateTimePicker.Size = new System.Drawing.Size(200, 21);
             this.nGAYDateTimePicker.TabIndex = 3;
             // 
-            // cmbHOTENKH
+            // txtHOTENKH
             // 
-            this.cmbHOTENKH.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsPX, "HOTENKH", true));
-            this.cmbHOTENKH.Location = new System.Drawing.Point(111, 65);
-            this.cmbHOTENKH.Name = "cmbHOTENKH";
-            this.cmbHOTENKH.Size = new System.Drawing.Size(200, 21);
-            this.cmbHOTENKH.TabIndex = 5;
+            this.txtHOTENKH.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsPX, "HOTENKH", true));
+            this.txtHOTENKH.Location = new System.Drawing.Point(111, 65);
+            this.txtHOTENKH.Name = "txtHOTENKH";
+            this.txtHOTENKH.Size = new System.Drawing.Size(200, 21);
+            this.txtHOTENKH.TabIndex = 5;
             // 
             // bdsCTPX
             // 
@@ -649,6 +656,7 @@
             this.sửaVTToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(153, 114);
+            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // thêmToolStripMenuItem
             // 
@@ -758,7 +766,7 @@
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private System.Windows.Forms.TextBox txtMAPX;
         private System.Windows.Forms.DateTimePicker nGAYDateTimePicker;
-        private System.Windows.Forms.TextBox cmbHOTENKH;
+        private System.Windows.Forms.TextBox txtHOTENKH;
         private DevExpress.XtraGrid.GridControl gcPX;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DSTableAdapters.CTPXTableAdapter cTPXTableAdapter;

@@ -137,6 +137,18 @@ namespace DX_QLVT_DATHANG
 
         private void btnGhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            if (txtMAPX.Text.Trim() == "")
+            {
+                MessageBox.Show("Mã phiếu xuất không được để trống!");
+                txtMAPX.Focus();
+                return;
+            }
+            if (txtHOTENKH.Text.Trim() == "")
+            {
+                MessageBox.Show("Họ Nhân viên không được để trống!");
+                txtHOTENKH.Focus();
+                return;
+            }
             if (flag == true)
             {
                 try
@@ -208,7 +220,7 @@ namespace DX_QLVT_DATHANG
 
         private void ghiVTToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (flag1 == true)
+            if (flag == true)
             {
                 vitri = bdsCTPX.Position;
                 if (gvCTPX.Rows[vitri].Cells[1].Value == DBNull.Value)
@@ -222,54 +234,58 @@ namespace DX_QLVT_DATHANG
                     MessageBox.Show("Số lượng không được để trống");
                     return;
                 }
-                }
-            
+
+
                 try
+                {
+                    String str = "dbo.SP_SoLuongTon";
+                    Program.sqlcmd = Program.conn.CreateCommand();
+                    Program.sqlcmd.CommandType = CommandType.StoredProcedure;
+                    Program.sqlcmd.CommandText = str;
+                    Program.sqlcmd.Parameters.Add("@mavt", SqlDbType.NChar).Value = gvCTPX.Rows[vitri].Cells[1].Value;
+                    Program.sqlcmd.Parameters.Add("@soluong", SqlDbType.Int).Value = gvCTPX.Rows[vitri].Cells[2].Value;
+                    Program.sqlcmd.Parameters.Add("@Ret", SqlDbType.NChar).Direction = ParameterDirection.ReturnValue;
+                    Program.sqlcmd.ExecuteNonQuery();
+                    String ret = Program.sqlcmd.Parameters["@RET"].Value.ToString();
+                    if (ret == "1")
                     {
-                        String str = "dbo.SP_SoLuongTon";
-                        Program.sqlcmd = Program.conn.CreateCommand();
-                        Program.sqlcmd.CommandType = CommandType.StoredProcedure;
-                        Program.sqlcmd.CommandText = str;
-                        Program.sqlcmd.Parameters.Add("@mavt", SqlDbType.NChar).Value = gvCTPX.Rows[vitri].Cells[1].Value;
-                        Program.sqlcmd.Parameters.Add("@soluong", SqlDbType.Int).Value = gvCTPX.Rows[vitri].Cells[2].Value;
-                        Program.sqlcmd.Parameters.Add("@Ret", SqlDbType.NChar).Direction = ParameterDirection.ReturnValue;
-                        Program.sqlcmd.ExecuteNonQuery();
-                        String ret = Program.sqlcmd.Parameters["@RET"].Value.ToString();
-                        if (ret == "1")
+                        MessageBox.Show("Không đủ hàng để xuất");
+                        return;
+                    }
+                    else
+                    {
+                        try
                         {
-                            MessageBox.Show("Không đủ hàng để xuất");
+                            bdsCTPX.EndEdit();
+                            bdsCTPX.ResetCurrentItem();
+                            this.cTPXTableAdapter.Connection.ConnectionString = Program.connstr;
+                            this.cTPXTableAdapter.Update(this.DS.CTPX);
+                            MessageBox.Show("Ghi vật tư vào đơn đặt hàng thành công");
+                            //string s = cmbMAVT.
                             return;
                         }
-                        else
+
+
+                        catch (Exception ee)
                         {
-                            try {
-                                bdsCTPX.EndEdit();
-                                bdsCTPX.ResetCurrentItem();
-                                this.cTPXTableAdapter.Connection.ConnectionString = Program.connstr;
-                                this.cTPXTableAdapter.Update(this.DS.CTPX);
-                                MessageBox.Show("Ghi vật tư vào đơn đặt hàng thành công");
-                                //string s = cmbMAVT.
+
+                            if (ee.Message.Contains("duplicate"))
+                            {
+                                MessageBox.Show("Vật tư đã tồn tại trong đơn đặt hàng");
                                 return;
                             }
-                            
-
-                            catch (Exception ee)
-                            {
-
-                                if (ee.Message.Contains("duplicate"))
-                                {
-                                    MessageBox.Show("Vật tư đã tồn tại trong đơn đặt hàng");
-                                    return;
-                                }
-                                MessageBox.Show("lỗi ghi vât tư" + ee.Message);
-                            }
+                            MessageBox.Show("lỗi ghi vât tư" + ee.Message);
                         }
-                    
                     }
+
+                }
                 catch (Exception ef)
                 {
                     MessageBox.Show("Lỗi kiểm tra số lượng tồn " + ef.Message);
                 }
+            }
+            
+                
         }
 
         private void btnThoat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -289,6 +305,37 @@ namespace DX_QLVT_DATHANG
             vitri = bdsCTPX.Position;
             gvCTPX.Rows[vitri].ReadOnly = false;
             flag1 = false;
+        }
+
+        private void btnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (bdsCTPX.Count > 0)
+            {
+                MessageBox.Show("Phiếu xuất đã có chi tiết, không thể xóa");
+                return;
+            }
+           
+            else
+            {
+                if (MessageBox.Show("Bạn có thật sự muốn xóa ? ", "Xác nhận", MessageBoxButtons.YesNoCancel) == DialogResult.Yes)
+                {
+                    try
+                    {
+                        bdsPX.RemoveCurrent();
+                        this.phieuXuatTableAdapter.Update(this.DS.PhieuXuat);
+                        MessageBox.Show("Xóa thành công");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi xóa" + ex.Message, "", MessageBoxButtons.OK);
+                    }
+                }
+            }
+        }
+
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+
         }
     }
 }

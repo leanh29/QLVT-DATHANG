@@ -39,6 +39,7 @@
             System.Windows.Forms.Label label4;
             System.Windows.Forms.Label label5;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formNhanVien));
+            System.Windows.Forms.Label trangThaiXoaLabel;
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.btnThem = new DevExpress.XtraBars.BarButtonItem();
@@ -80,6 +81,7 @@
             this.colMACN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTrangThaiXoa = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.txtMANV = new System.Windows.Forms.NumericUpDown();
             this.txtmaCN = new System.Windows.Forms.TextBox();
             this.txtLuong = new DevExpress.XtraEditors.TextEdit();
             this.txtNS = new System.Windows.Forms.DateTimePicker();
@@ -100,7 +102,7 @@
             this.btnChuyen = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.txtMaNVMoi = new System.Windows.Forms.TextBox();
-            this.txtMANV = new System.Windows.Forms.NumericUpDown();
+            this.txtTTX = new System.Windows.Forms.TextBox();
             mANVLabel = new System.Windows.Forms.Label();
             hOLabel = new System.Windows.Forms.Label();
             tENLabel = new System.Windows.Forms.Label();
@@ -110,6 +112,7 @@
             mACNLabel = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
             label5 = new System.Windows.Forms.Label();
+            trangThaiXoaLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.v_DS_PHANMANHBindingSource)).BeginInit();
@@ -120,6 +123,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMANV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLuong.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDiaChi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).BeginInit();
@@ -130,7 +134,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.bdsDH)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMANV)).BeginInit();
             this.SuspendLayout();
             // 
             // mANVLabel
@@ -345,7 +348,7 @@
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 488);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 513);
             this.barDockControlBottom.Size = new System.Drawing.Size(958, 23);
             // 
             // barDockControlLeft
@@ -353,14 +356,14 @@
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 40);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 448);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 473);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(958, 40);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 448);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 473);
             // 
             // barButtonItem1
             // 
@@ -564,6 +567,8 @@
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(trangThaiXoaLabel);
+            this.groupControl1.Controls.Add(this.txtTTX);
             this.groupControl1.Controls.Add(this.txtMANV);
             this.groupControl1.Controls.Add(mACNLabel);
             this.groupControl1.Controls.Add(this.txtmaCN);
@@ -581,9 +586,17 @@
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupControl1.Location = new System.Drawing.Point(0, 243);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(539, 245);
+            this.groupControl1.Size = new System.Drawing.Size(551, 270);
             this.groupControl1.TabIndex = 20;
             this.groupControl1.Paint += new System.Windows.Forms.PaintEventHandler(this.groupControl1_Paint);
+            // 
+            // txtMANV
+            // 
+            this.txtMANV.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bdsNV, "MANV", true));
+            this.txtMANV.Location = new System.Drawing.Point(99, 45);
+            this.txtMANV.Name = "txtMANV";
+            this.txtMANV.Size = new System.Drawing.Size(120, 21);
+            this.txtMANV.TabIndex = 14;
             // 
             // txtmaCN
             // 
@@ -625,7 +638,7 @@
             // txtTen
             // 
             this.txtTen.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsNV, "TEN", true));
-            this.txtTen.Location = new System.Drawing.Point(87, 140);
+            this.txtTen.Location = new System.Drawing.Point(99, 140);
             this.txtTen.MenuManager = this.barManager1;
             this.txtTen.Name = "txtTen";
             this.txtTen.Size = new System.Drawing.Size(100, 20);
@@ -634,7 +647,7 @@
             // txtHo
             // 
             this.txtHo.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsNV, "HO", true));
-            this.txtHo.Location = new System.Drawing.Point(87, 94);
+            this.txtHo.Location = new System.Drawing.Point(99, 91);
             this.txtHo.MenuManager = this.barManager1;
             this.txtHo.Name = "txtHo";
             this.txtHo.Size = new System.Drawing.Size(100, 20);
@@ -686,15 +699,16 @@
             this.panelControl1.Controls.Add(this.label2);
             this.panelControl1.Controls.Add(this.txtMaNVMoi);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl1.Location = new System.Drawing.Point(539, 243);
+            this.panelControl1.Location = new System.Drawing.Point(551, 243);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(419, 245);
+            this.panelControl1.Size = new System.Drawing.Size(407, 270);
             this.panelControl1.TabIndex = 25;
             // 
             // cmbCNMoi
             // 
             this.cmbCNMoi.DataSource = this.sP_DSCNBindingSource;
             this.cmbCNMoi.DisplayMember = "MACN";
+            this.cmbCNMoi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCNMoi.FormattingEnabled = true;
             this.cmbCNMoi.Location = new System.Drawing.Point(107, 94);
             this.cmbCNMoi.Name = "cmbCNMoi";
@@ -737,19 +751,29 @@
             this.txtMaNVMoi.Size = new System.Drawing.Size(100, 21);
             this.txtMaNVMoi.TabIndex = 19;
             // 
-            // txtMANV
+            // trangThaiXoaLabel
             // 
-            this.txtMANV.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bdsNV, "MANV", true));
-            this.txtMANV.Location = new System.Drawing.Point(87, 47);
-            this.txtMANV.Name = "txtMANV";
-            this.txtMANV.Size = new System.Drawing.Size(120, 21);
-            this.txtMANV.TabIndex = 14;
+            trangThaiXoaLabel.AutoSize = true;
+            trangThaiXoaLabel.Location = new System.Drawing.Point(10, 190);
+            trangThaiXoaLabel.Name = "trangThaiXoaLabel";
+            trangThaiXoaLabel.Size = new System.Drawing.Size(83, 13);
+            trangThaiXoaLabel.TabIndex = 16;
+            trangThaiXoaLabel.Text = "Trang Thai Xoa:";
+            // 
+            // txtTTX
+            // 
+            this.txtTTX.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsNV, "TrangThaiXoa", true));
+            this.txtTTX.Enabled = false;
+            this.txtTTX.Location = new System.Drawing.Point(99, 187);
+            this.txtTTX.Name = "txtTTX";
+            this.txtTTX.Size = new System.Drawing.Size(100, 21);
+            this.txtTTX.TabIndex = 17;
             // 
             // formNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(958, 511);
+            this.ClientSize = new System.Drawing.Size(958, 536);
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.gcNhanVien);
@@ -773,6 +797,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMANV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLuong.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDiaChi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).EndInit();
@@ -784,7 +809,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMANV)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -854,5 +878,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtMaNVMoi;
         private System.Windows.Forms.NumericUpDown txtMANV;
+        private System.Windows.Forms.TextBox txtTTX;
     }
 }
